@@ -1,4 +1,4 @@
-# Claude CoWork — Workspace Spec (Draft)
+# Claude Coworking Space.
 
 A Workspace is a folder that turns Claude into a domain-specific assistant. No code, no build steps — just markdown files and folder conventions.
 
@@ -6,7 +6,6 @@ Workspaces are designed for Claude CoWork, a feature in the Claude Desktop app t
 
 This repository is both the spec and a working example (a meeting notes assistant). Everything here demonstrates the patterns any Workspace should follow.
 
----
 
 ## How to Use a Workspace
 
@@ -15,7 +14,6 @@ This repository is both the spec and a working example (a meeting notes assistan
 3. Open the folder as a project
 4. Claude reads CLAUDE.md, runs the setup workflow, and you're ready to go
 
----
 
 ## Structure
 
@@ -42,13 +40,12 @@ Rules:
 - Files prefixed with `_` are system files
 - All user data folders must be gitignored
 
----
 
 ## CLAUDE.md
 
 The entry point. Claude reads this upfront and uses it to route user intent to workflow files. It must contain these sections, in order:
 
-### Header (required)
+### Header
 
 ```markdown
 # [Workspace Title]
@@ -59,7 +56,7 @@ The entry point. Claude reads this upfront and uses it to route user intent to w
 - Author: [who made it]
 ```
 
-### Requirements (required)
+### Requirements
 
 What the workspace needs. Two levels:
 
@@ -68,11 +65,11 @@ What the workspace needs. Two levels:
 
 If there are no hard requirements, say so explicitly.
 
-### Folder Structure (required)
+### Folder Structure
 
 Lists all folders, split into system folders (versioned, part of the template) and user data folders (gitignored, created during setup).
 
-### Workflows (required)
+### Workflows
 
 Maps user intent to workflow files. Every entry needs a name, a file path, and trigger examples. Split into:
 
@@ -81,7 +78,7 @@ Maps user intent to workflow files. Every entry needs a name, a file path, and t
 
 Must end with: `Before executing any workflow, you MUST read its instruction file in full.`
 
-### Ground Rules (required)
+### Ground Rules
 
 Must include at least these four:
 - User data is sacred: never overwrite or delete without permission
@@ -99,7 +96,7 @@ How Claude should communicate. Without it, Claude defaults to generic behavior.
 
 Explicit anti-patterns for this workspace.
 
-### Setup Trigger (required)
+### Setup Trigger
 
 Last line. Triggers the setup workflow on first run, then gets commented out:
 
@@ -107,7 +104,6 @@ Last line. Triggers the setup workflow on first run, then gets commented out:
 ACTIVATE: Setup workflow — read `_workspace/config/_setup.md` and execute.
 ```
 
----
 
 ## Workflow Files
 
@@ -118,7 +114,6 @@ Guidelines:
 - Include examples: show expected output format, file naming, templates
 - State constraints: if the workflow has rules, state them explicitly
 
----
 
 ## Default Workflows
 
@@ -149,7 +144,6 @@ Lets users add reference material. Must:
 2. Convert to clean markdown in `_workspace/sources/`
 3. Preserve content faithfully: no summarizing
 
----
 
 ## Building Your Own
 
@@ -159,7 +153,6 @@ Lets users add reference material. Must:
 4. Add workflow files to `_workspace/workflows/`
 5. Zip and share
 
----
 
 ## What's Next
 
@@ -169,7 +162,6 @@ This spec is a draft. We're working toward:
 - A library of community Workspaces
 - Native Claude CoWork integration
 
----
 
 ## License
 
