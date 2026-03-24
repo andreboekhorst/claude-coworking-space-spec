@@ -1,12 +1,21 @@
-![Header](header.jpg)
+![Header](_assets/header.jpg)
 
-# Claude Workspace - A Blueprint
+# Claude Workspace - A Proposal
+
+A Workspace is like a container for you Claude Cowork Projects:
+- You can configure it for any workflow
+- Your workflow is shareable and reuasble
+- you can continously improve your workspace while using them!
 
 Claude Cowork leverages the power of Claude Code while working in the Claude App. Unfortunately it is missing some features like project specific skills, memory or workflows.
 
 That's why we're proposing a blueprint for a Claude Workspace: A Workspace is a folder that turns Claude into a domain-specific assistant. A project that can just be opened as a folder within Claude. This project can have **multiple workflows** that are available to you.
 
 This repository is both the spec and a working example (a meeting notes assistant). Everything here demonstrates the patterns any Workspace should follow.
+
+<p align="center">
+  <big><big><a href="https://github.com/andreboekhorst/claude-workspace/archive/refs/heads/main.zip">🐚 Download claude-workspace.zip</a></big></big>
+</p>
 
 
 ## ✨ Key Features
@@ -20,12 +29,16 @@ This repository is both the spec and a working example (a meeting notes assistan
 - ✏️ **No code required** — Just markdown files and folders.
 
 
-## 🚀 How to Use a Workspace
 
-1. Download the Workspace folder (or receive it as a zip)
-2. Open Claude Desktop and go to Claude Cowork
-3. Open the folder as a project
-4. Say hi!, and a setup should start.
+
+## 🚀 Getting Started
+
+1. Download [this workflow](https://github.com/andreboekhorst/claude-workspace/archive/refs/heads/main.zip)
+2. Unzip the file
+3. Open Claude Desktop, go to Claude Cowork
+4. Under the "Projects" section, click the + button to create a new Project. 
+5. Select "Use an existing folder", and select the location you just zipped.
+6. Say hi!, and a setup should start.
 
 ## How does it work?
 Workspaces are designed for Claude Cowork, a feature in the Claude Desktop app that lets you open a folder as a project. When Claude Cowork opens a folder, it reads the CLAUDE.md file and follows the instructions inside. When needed it can read project-specific workflows for instructions that you give it, using a method called progressive disclosure.
@@ -46,7 +59,6 @@ my-workspace/
       _add-context.md                  # Document conversion.
     workflows/                         # User-facing workflows. One file per workflow.
       [workflow-name].md
-    context/                           # User preferences. Gitignored.
     logs/                              # Session logs. Gitignored.
     sources/                           # Reference material. Gitignored. Recommended.
   [user-facing folders]/               # Workspace-specific. Gitignored.
@@ -236,7 +248,14 @@ Lets users add reference material. Must:
 ## 🔮 What's Next
 
 This spec is a draft. We're working toward:
-
 - A skill that generates Workspaces from a description
 - A library of community Workspaces
 - Native Claude Cowork integration
+
+## FAQ 
+Why not just use Claude Skills?
+- Claude skills can be used within the claude app, but they are not bound to a specific project or workflow. Also, it is a lot easier to configure new workflows within your workspace, and because claude can change it's own insturctions - you can contiously improve your workflow!
+
+## ⚠️ Security Notice
+
+Workspaces are essentially prompt files that instruct Claude how to behave. Before using any Workspace you didn't author yourself, **read every markdown file in the project** — especially `CLAUDE.md` and the workflow files in `_workspace/`. Treat them like code: a malicious or poorly written prompt could instruct Claude to overwrite files, exfiltrate content, or behave in unexpected ways. Only run Workspaces from sources you trust, and review any changes before applying them to your own setup.

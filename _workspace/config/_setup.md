@@ -2,13 +2,13 @@
 name: setup
 description: Initial setup and configuration of the workspace
 trigger: User says "set up my space", "configure", or opens the project for the first time
-requirements:
+requirements: AskUserQuestion
 ---
 
 # Workflow: Setup
 
 A short, conversational onboarding. Ask one question at a time — wait for an answer before moving on.
-
+In the setup use the AskUserQuestion tool.
 ---
 
 # Step 1 — Welcome & Environment Check
