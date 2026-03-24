@@ -1,6 +1,6 @@
 ![Header](_assets/header.jpg)
 
-# Claude Workspace - A Proposal
+# 🐚 Superpowers for Claude Cowork
 
 A Workspace is like a container for your Claude Cowork Projects:
 - You can configure it for any workflow

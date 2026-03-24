@@ -19,7 +19,14 @@ Never use blockquotes, bullet lists, or indented blocks when talking to the user
 
 Every step MUST start with a progress indicator showing which step you're on. Format:
 
-**Step X / 5** — [step name]
+[emoji] **Step X / 5** — [step name]
+
+Each step gets a unique emoji that fits its purpose. Use these:
+- Step 1: 👋 (Welcome)
+- Step 2: 🔧 (Tools)
+- Step 3: ✏️ (Design)
+- Step 4: 🏗️ (Build)
+- Step 5: 🎉 (Ready)
 
 This helps the user know where they are in the process and how much is left.
 
@@ -98,6 +105,7 @@ Create these if missing:
 
 ## Update CLAUDE.md
 
+- Update `## Folder Structure` to include any new subfolders created under `/files/`
 - Replace `Name:` with the workspace name
 - Replace `Author:` with the user's name
 - Replace `Description:` with a one-line description
@@ -161,11 +169,19 @@ Comment out the ACTIVATE line at the bottom of `CLAUDE.md`:
 
 ---
 
-# Step 5 — Reveal (show: **Step 5 / 5** — Your workspace is ready)
+# Step 5 — Reveal (show: 🎉 **Step 5 / 5** — Your workspace is ready)
+
+## Celebrate
+
+Before sending the final message, use `present_files` to open `_workspace/config/finish.gif` in the preview.
 
 ## What to show
 
-Keep the reveal conversational too. Tell them the workspace is ready, list what was built with a short description and an example trigger phrase for each workflow, mention connected tools if any.
+Tell them the workspace is ready, then:
+
+1. List the workflows that were set up. Use a bulleted list with a unique emoji for each workflow, a short description, and an example trigger phrase.
+2. List the directories created under `files/`, with a one-line explanation of what each one is for.
+3. Mention connected tools if any.
 
 ## Remind them it's flexible
 
