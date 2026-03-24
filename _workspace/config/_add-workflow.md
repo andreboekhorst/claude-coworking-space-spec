@@ -111,7 +111,7 @@ requirements: [Tools/MCPs needed, or "none"]
 
 ### Writing principles
 - **Match the existing tone.** Read an existing workflow if unsure — your output should feel like it belongs in the same family.
-- **Be specific, not generic.** "Save to `/_workspace/context/notes/`" is better than "save the output."
+- **Be specific, not generic.** "Save to `/_workspace/logs/`" is better than "save the output."
 - **Phases should be actionable.** Each phase has clear entry conditions, actions, and exit conditions.
 - **Use `AskUserQuestion`** in the generated workflow wherever user input is needed during execution.
 - **Prefer fewer phases.** Not every workflow needs 4 phases. Simple workflows can have 2-3. Don't pad.

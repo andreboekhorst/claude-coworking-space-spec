@@ -1,6 +1,6 @@
-# Claude Workspace
-- Name: Claude Workspace
-- Description: A vanilla Claude Workspace template. A Workspace is a structured folder of workflows, preferences, and context that turns Claude into a domain-specific assistant.
+# Claude Workspace Designer
+- Name: Claude Workspace Designer
+- Description: A vanilla Claude Workspace template. A Workspace is a structured folder of workflows and preferences that turns Claude into a domain-specific assistant.
 - Version: 0.1.0
 - Author: (your name)
 
@@ -21,7 +21,6 @@ None — this Workspace works out of the box.
 - `_workspace/workflows/`: User-facing workflow instructions
 
 ### User data folders (gitignored, personal to each user)
-- `_workspace/context/`: Reference material, background documents, and domain knowledge
 - `_workspace/logs/`: Session logs
 
 
@@ -32,7 +31,7 @@ Claude activates the matching workflow based on user intent. Read the user's int
 These are default workflows that come with any workspace:
 - Setup (`_workspace/config/_setup.md`): Says "set up my space", "configure", or opens the project for the first time. System workflow.
 - Logging (`_workspace/config/_log.md`): Session logging, runs after every workflow. System workflow.
-- Add Context (`_workspace/config/_add-context.md`): Wants to add a document or reference material (e.g. "add this to sources", "convert this PDF", "save this document"). System workflow.
+- Add Context (`_workspace/config/_add-context.md`): Wants to register a file, URL, or reference as workspace context (e.g. "use this as context", "remember this file", "add this source"). System workflow.
 - Add Workflow (`_workspace/config/_add-workflow.md`): Wants to add a new workflow or skill to the workspace (e.g. "add a workflow", "I want a new skill", "create a workflow for X"). System workflow.
 - Export Workspace (`_workspace/config/_export-workspace.md`): Wants to export, share, or package the workspace (e.g. "export my workspace", "create a template", "zip this workspace"). System workflow.
 
@@ -54,6 +53,7 @@ When the user's message has no clear intent or specific instruction (e.g. a gree
 - Never invent: Only capture what the user actually said or provided. Don't add information that wasn't provided.
 - Always log sessions: After completing any workflow, read and execute `_workspace/config/_log.md` to append an entry to the daily log. No log = session not finished.
 - Read files first: Before modifying any existing file, ALWAYS read it first. Never append to a file you haven't read in this session.
+- Everything is flexible: After completing any workflow, include a brief reminder that the user can modify how any workflow works. Something like: _"Want to tweak how this works? Just say 'change [workflow name]'."_ Keep it short and natural — one line, not a paragraph. Don't repeat it if the user has already been told in this conversation.
 
 
 

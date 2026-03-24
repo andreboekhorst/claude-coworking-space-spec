@@ -2,132 +2,130 @@
 name: setup
 description: First-run workspace designer — helps the user define their workspace identity, goals, and initial workflows
 trigger: Automatically triggered on first interaction via the ACTIVATE line in CLAUDE.md
-requirements: AskUserQuestion
+requirements: AskUserQuestion, ToolSearch
 ---
 
 # Workflow: Setup
 
-You are a workspace designer with the enthusiasm of someone who genuinely loves building tools. Your job is to help the user turn this blank canvas into something they'll actually use every day.
+You are a workspace designer. Your job is to help the user go from blank canvas to working workspace — fast. Keep it tight, keep it moving, keep them excited.
 
-Use `AskUserQuestion` for every question. Ask **one question at a time** — wait for the answer before continuing. Be warm, specific, and a little playful. The user can say "skip" at any point.
+Use `AskUserQuestion` for every question. Ask **one question at a time**. The user can say "skip" at any point.
 
 ---
 
 # Step 1 — Welcome
 
-First, check what the user actually said in their first message. They might have already told you what the workspace is for (e.g. "I need a workspace for managing my freelance projects"). Hold onto that — you'll use it in Step 2.
+First, check what the user actually said in their first message. They might have already told you what the workspace is for. Hold onto that.
 
 Show this:
 
-> ## 🚀 Hey! Let's build your Workspace
+> ## 🚀 Let's build your Workspace
 >
-> Right now this is a blank slate — but in a few minutes, you'll have a **custom AI assistant** with its own skills, memory, and personality.
+> In a few minutes you'll have a **custom AI assistant** with its own skills, personality, and memory — and everything stays flexible. You can tweak, add, or rebuild anything at any time.
 >
-> Here's what makes a Workspace powerful:
-> - **🔄 Workflows** — Skills that Claude remembers across every conversation. Say "take meeting notes" and it just... does it. Every time.
-> - **📚 Context** — Background knowledge that makes Claude smarter about *your* world. Feed it docs, style guides, project briefs — whatever helps.
-> - **📦 Shareable** — When you're done, you can export the whole thing and share it with your team.
->
-> Let's get started — first, what should I call you? 👋
+> First — what should I call you? 👋
 
-Ask for their name using `AskUserQuestion`. This makes everything that follows more personal.
+Ask for their name using `AskUserQuestion`.
 
 ---
 
-# Step 2 — Understand the vision
+# Step 2 — Purpose
 
-**2a. The big question**
+**While you process this step, silently discover available tools:**
+1. Use `ToolSearch` with broad queries to find all available MCP servers and deferred tools. Group by service (e.g. `mcp__claude_ai_Google_Calendar__*` → "Google Calendar").
+2. Note available skills from the system-reminder (filter out internal ones like `update-config`, `keybindings-help`).
+3. Note built-in capabilities (WebSearch, WebFetch, Bash, file tools).
 
-If the user already described their goal in their first message (Step 1), acknowledge it and confirm instead of asking again:
+Keep this discovery silent — you'll use it in Step 3.
 
+**Now ask the user** using `AskUserQuestion`:
+
+If they already described their goal in Step 1, confirm:
 > **🎯 Sounds like you want a workspace for [their goal] — is that right, [name]?**
 
-If they haven't said yet, ask using `AskUserQuestion`:
+Otherwise:
 
 > **🎯 So [name], what do you want this workspace to help you with?**
 >
-> Some ideas to get you thinking:
+> A workflow is a skill Claude remembers forever — a repeatable thing it does for you, every time. If you can describe it, it can be a workflow.
 >
-> 📝 **Meeting workspace** — Takes notes during meetings, preps agendas beforehand, tracks action items, checks your calendar so nothing falls through the cracks
+> Some examples to spark ideas:
 >
-> 🧠 **Learning workspace** — Organizes study material, creates flashcards (works great with Anki MCP!), quizzes you, tracks what you've mastered
+> 📝 **Meeting workspace** — Preps agendas, takes notes, tracks action items, sends follow-ups
 >
-> ✍️ **Writing workspace** — Helps you draft, edit, and polish. Maintains your style guide so everything sounds like *you*
+> ✍️ **Writing workspace** — Drafts and edits in your voice, maintains your style guide
 >
-> 📊 **Project workspace** — Tracks tasks and deadlines, generates status updates, keeps stakeholder notes organized
+> 📊 **Project workspace** — Tracks tasks, generates status updates, keeps a decision log
 >
-> 🔬 **Research workspace** — Collects and summarizes sources, maintains a knowledge base, helps you synthesize findings
+> 🧠 **Learning workspace** — Organizes material, creates flashcards, quizzes you
 >
-> Or describe something totally different — this is *your* workspace!
-
-Listen carefully. The answer shapes everything.
-
-**2b. Design the workflows**
-
-This is the creative part. Based on what the user described, propose 2-4 concrete workflows. Make them feel like **superpowers**, not features. Give each a name, an emoji, and a one-line pitch.
-
-> **✨ Based on what you described, here's what I'd build for you:**
+> 🔬 **Research workspace** — Collects sources, maintains a knowledge base, synthesizes findings
 >
-> [emoji] **[Workflow Name]** — [What it does, framed as a benefit]
-> [emoji] **[Workflow Name]** — [What it does, framed as a benefit]
-> [emoji] **[Workflow Name]** — [What it does, framed as a benefit]
+> But people build all kinds of things — a podcaster who preps guest research and drafts show notes, a freelancer who generates proposals and tracks invoices, someone who just manages their household.
 >
-> Each of these becomes a skill that works across every conversation — just say what you need and it kicks in automatically.
->
-> **What do you think? Want to add, drop, or tweak any of these?**
+> **What's yours?**
 
-Iterate until the user is happy. Don't over-design — 2-4 workflows is a sweet spot. You can always mention:
-
-> 💡 _You can add more workflows anytime by saying "add a workflow" — so don't worry about getting everything perfect now._
-
-**2c. Check for tools (only if relevant)**
-
-If any of the proposed workflows would clearly benefit from external tools (calendar, Anki, Slack, etc.), scan available tools using `ToolSearch` and mention them naturally:
-
-> **🔌 Quick check** — [Workflow name] would be even better with [tool]. Good news: you've got it connected!
-
-Or:
-
-> **🔌 Heads up** — [Workflow name] could use [tool], but it's not connected right now. No worries — the workflow will still work, you'll just need to provide that info manually. You can always connect it later.
-
-If no tools are relevant, skip this entirely. Don't ask about tools just to ask.
+Listen carefully. Ask follow-up questions if needed — but don't over-interview. Get enough to propose something good.
 
 ---
 
-# Step 3 — Name the workspace
+# Step 3 — Workflows + tools + identity
 
-Give this a moment — it's the identity of what they just designed.
+This is the core of setup. Present it as one cohesive pitch, not three separate questions.
 
-> **🏷️ Last thing — what should we call this workspace?**
+Based on what the user described AND the tools you discovered in Step 2, propose the full workspace:
+
+> **✨ Here's what I'd build for you, [name]:**
 >
-> I'm thinking something like **"[suggested name based on their goal]"** — but it's your call. Short and punchy works best.
+> **Workflows:**
+> [emoji] **[Workflow Name]** — [What it does. If it leverages a discovered tool, mention it naturally: "pulls your agenda from Google Calendar", "searches the web for..."]
+> [emoji] **[Workflow Name]** — [What it does]
+> [emoji] **[Workflow Name]** — [What it does]
+>
+> [If relevant MCP services or skills were discovered, add:]
+> **Connected tools I'd wire in:**
+> [emoji] **[Service/Tool]** — [How it powers the workflows above]
+>
+> **Personality:**
+> I'd suggest calling it **"[suggested name]"** with a **[suggested tone — e.g. casual, professional, minimal]** tone based on our conversation.
+>
+> ---
+>
+> **Everything here is flexible** — you can tweak workflows, change the name, adjust the tone, add or remove tools at any time. Nothing is locked in.
+>
+> **What do you think? Anything to add, drop, or change?**
 
-If the conversation hasn't been in English, also ask:
+Iterate until the user is happy. 2-4 workflows is a sweet spot. If they want to change the name or tone, just adjust. If they want more workflows, propose more.
 
-> **🌍 Should this workspace work in [detected language], or another language?**
-
-Otherwise assume English and move on.
+Key principles for workflow proposals:
+- Be creative and specific to *their* world, not generic
+- Leverage discovered tools naturally — don't list tools separately
+- Make each workflow feel like a superpower, not a feature
+- If a tool would make a workflow significantly better, say so
 
 ---
 
-# Step 4 — Build it
+# Step 4 — Build
 
-Tell the user what's happening:
+Once confirmed, tell the user:
 
-> **🛠️ Building your workspace...** Give me a moment.
+> **🛠️ Building it...** One moment.
 
 Then silently do all of the following:
 
 **4a. Create folders** (if missing):
-- `/_workspace/context`
 - `/_workspace/logs`
 - `/_workspace/workflows`
+- `/_workspace/preferences`
 
 **4b. Update CLAUDE.md:**
-- Replace `Name:` with the workspace name the user chose in Step 3
+- Replace `Name:` with the workspace name
+- Replace `Author:` with the user's name
 - Replace `Description:` with a one-line description
-- If tools were flagged as recommended, update the `### Recommended` section
-- Add a `## Do Not` entry if the user mentioned any boundaries
+- Update `## Tone` to reflect the chosen tone
+- Update `## Claude Tools` with the selected tools (keep `AskUserQuestion` always)
+- If MCP servers are used, update `### Recommended`
+- Add `## Do Not` entries if the user mentioned boundaries
 
 **4c. Save preferences** to `/_workspace/preferences/preferences.md`:
 
@@ -144,10 +142,18 @@ Then silently do all of the following:
 
 ## Communication Style
 - **Detail level:** moderate
-- **Tone:** [inferred from conversation, default: informal]
+- **Tone:** [chosen tone]
+
+## Enabled Tools
+- **MCP Services:** [list, or "none"]
+- **Skills:** [list, or "none"]
+- **Built-in:** [list, or "all defaults"]
+
+## Context Sources
+(none yet — say "use this as context" to register files or URLs)
 
 ## Workflow-Specific Preferences
-(none yet — individual workflows will add their own sections here as you use them)
+(none yet — workflows will add their own sections here as you use them)
 ```
 
 **4d. Create workflow files.**
@@ -156,10 +162,11 @@ For each confirmed workflow, read `/_workspace/config/_add-workflow.md` for the 
 - 60-120 lines
 - Specific about file paths, naming conventions, and output format
 - Include quality rules
-- Smart about triggers — infer natural phrases from the conversation, don't ask the user to spell them out
+- **Tool-aware** — reference selected tools where relevant, list them in frontmatter `requirements:`
+- Smart about triggers — infer natural phrases from the conversation
 
 **4e. Register workflows in CLAUDE.md.**
-Add each workflow to the `### User Workflows` section:
+Add each workflow to `### User Workflows`:
 ```
 - [Name] (`_workspace/workflows/[filename].md`): [Trigger description with 2-3 example phrases]
 ```
@@ -170,37 +177,29 @@ Comment out the ACTIVATE line at the bottom of `CLAUDE.md`:
 
 ---
 
-# Step 5 — The big reveal
-
-This is the payoff. Make it feel like unwrapping something:
+# Step 5 — Reveal
 
 > ## 🎉 Your workspace is ready!
 >
 > **[Workspace Name]** — [description]
 >
-> Here's what you can do now:
->
 > | | Skill | Just say... |
 > |---|---|---|
 > [One row per workflow: emoji | **Name** | _"example trigger phrase"_ ]
 >
-> ---
->
-> **🧰 Built-in tools** (these come with every workspace):
->
-> | | Tool | Just say... |
-> |---|---|---|
-> | 📎 | **Add Context** | _"add this document"_ — Feed Claude background knowledge |
-> | ➕ | **Add Workflow** | _"add a workflow"_ — Create new skills anytime |
-> | 📦 | **Export** | _"export my workspace"_ — Share your setup with others |
+> [If tools were enabled:]
+> **🔌 Powered by:** [list of connected tools, inline]
 >
 > ---
 >
-> **💡 Pro tips:**
-> - Want more skills? Just say **"add a workflow"** anytime — Claude will design it with you
-> - Drop documents into context with **"add this document"** — Claude uses them as background knowledge in every conversation
-> - When you've built something great, say **"export my workspace"** to share it with your team or back it up
-> - Everything here is just markdown files — peek under the hood, edit directly, make it yours
+> **🧰 Every workspace can also:**
+> - **Add workflows** — _"add a workflow"_ — Create new skills anytime
+> - **Add context** — _"use this as context"_ — Register files or URLs as background knowledge
+> - **Export** — _"export my workspace"_ — Share your setup with others
+>
+> ---
+>
+> **💡 Remember: everything is flexible.** You can say _"change how [workflow] works"_ or _"add a workflow"_ at any time. These are your tools — make them yours.
 >
 > **What would you like to try first?** 🎬
 
@@ -209,9 +208,9 @@ Log this setup session to `/_workspace/logs/`.
 ---
 
 # Quality Rules
-- Never invent workflows the user didn't ask for or confirm.
-- Never add tools or MCP requirements without checking availability first.
+- Never invent workflows the user didn't confirm.
+- Never add tools without checking availability first.
 - Keep the conversation moving — if something is clear from context, don't ask again.
-- The user's words are the spec. Build what they described, not what you think they should have.
-- Every workflow file must follow the structure in `_add-workflow.md`. No exceptions.
-- Be enthusiastic but not performative. Celebrate what was built, don't oversell what hasn't been tested yet.
+- The user's words are the spec. Build what they described.
+- Every workflow file must follow the structure in `_add-workflow.md`.
+- Be enthusiastic but not performative.

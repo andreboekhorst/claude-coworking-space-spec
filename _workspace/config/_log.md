@@ -57,7 +57,7 @@ Each entry follows this exact structure. Do not deviate.
 - **Be factual.** Only log what actually happened. Never invent or embellish.
 - **Be brief.** Each bullet should be one line. No paragraphs.
 - **Use 24h time** in the entry header (e.g. `## 14:30 — Note-Taking`).
-- **Artifacts must include full paths** relative to project root (e.g. `/_workspace/context/some_file.md`).
+- **Artifacts must include full paths** relative to project root (e.g. `/_workspace/workflows/some_file.md`).
 - **Open threads** are for things the user explicitly deferred or that remain unresolved. Don't manufacture them.
 - **Never log private content.** Summarize what was discussed at topic level, don't copy meeting content into the log.
 - **Separate entries** with a blank line between them. Nothing else.

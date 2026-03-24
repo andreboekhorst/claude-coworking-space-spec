@@ -39,16 +39,16 @@ Also ask for a **one-line description** of what this workspace is for. These wil
 
 # Phase 2 — Security scan
 
-Before zipping anything, scan files that will be included for potentially sensitive content. This is especially important for files in `_workspace/context/` and `_workspace/preferences/`.
+Before zipping anything, scan files that will be included for potentially sensitive content. This is especially important for files in `_workspace/preferences/` and any user files in the workspace root.
 
 **Always check these locations:**
 
-- `_workspace/context/*` — May contain contracts, personal documents, or confidential material. **Read each file** and flag anything that contains:
+- `_workspace/preferences/*` — Check for personal details (name, role is fine — but flag if it contains anything beyond basic profile info)
+- **All user files in the workspace root and subfolders** — May contain contracts, personal documents, or confidential material. **Read each file** and flag anything that contains:
   - Personal identifiable information (addresses, birth dates, BSN/SSN, bank details)
   - Employment contracts, salary information
   - Credentials, API keys, tokens
   - Confidential business information
-- `_workspace/preferences/*` — Check for personal details (name, role is fine — but flag if it contains anything beyond basic profile info)
 - Root-level files — Check for `.env`, credentials, or config files with secrets
 
 **Report findings to the user:**
@@ -87,14 +87,12 @@ For **full exports**: warn about sensitive files but include them unless the use
 
 **Include as empty folders (create `.gitkeep` inside):**
 - `_workspace/logs/`
-- `_workspace/context/`
 
 **Exclude:**
 - `.git/`
 - `.claude/`
 - `.DS_Store` files
 - `_workspace/logs/*` (content only — keep folder)
-- `_workspace/context/*` (content only — keep folder)
 - Any files flagged in the security scan
 - Any root-level files that are not part of the template (user-created files in root)
 
@@ -159,7 +157,6 @@ This is a **Claude Workspace** — a structured folder of workflows, preferences
 | `_workspace/config/` | System workflows (don't edit) |
 | `_workspace/workflows/` | User-facing workflows |
 | `_workspace/preferences/` | Your preferences (filled during setup) |
-| `_workspace/context/` | Reference material and domain knowledge |
 | `_workspace/logs/` | Session logs |
 ```
 
