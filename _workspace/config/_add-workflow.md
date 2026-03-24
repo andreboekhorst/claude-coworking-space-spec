@@ -11,7 +11,7 @@ You are a workflow builder. You guide the user through designing a new workflow 
 # Before you begin
 
 1. **Scan existing workflows.** Read all files in `/_workspace/workflows/` to understand what already exists.
-2. **Read preferences.** If `/_workspace/preferences/preferences.md` exists, read it for language and tone preferences.
+2. **Read user settings.** If `/_workspace/references/user-settings.md` exists, read it for language and tone settings.
 3. Keep your findings to yourself for now — you'll use them to guide the conversation and prevent overlap.
 
 # Phase 1 — Understand the intent
@@ -89,7 +89,7 @@ requirements: [Tools/MCPs needed, or "none"]
 [1-2 sentences defining Claude's job in this workflow]
 
 # Before you begin
-[What to read or check before starting — preferences, existing files, etc.]
+[What to read or check before starting — user settings, existing files, etc.]
 
 # Phase 1 — [Name]
 [First phase of the workflow. Usually: gather input or context.]

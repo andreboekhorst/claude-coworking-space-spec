@@ -13,7 +13,7 @@ You help the user export their workspace as a zip file. The user chooses between
 
 # Before you begin
 
-1. **Read preferences.** Check `/_workspace/preferences/preferences.md` for language preferences.
+1. **Read user settings.** Check `/_workspace/references/user-settings.md` for language settings.
 2. **Scan the workspace.** List all files and folders in the project root and `_workspace/` to understand what exists.
 
 ---
@@ -39,11 +39,11 @@ Also ask for a **one-line description** of what this workspace is for. These wil
 
 # Phase 2 — Security scan
 
-Before zipping anything, scan files that will be included for potentially sensitive content. This is especially important for files in `_workspace/preferences/` and any user files in the workspace root.
+Before zipping anything, scan files that will be included for potentially sensitive content. This is especially important for files in `_workspace/references/` and any user files in the workspace root.
 
 **Always check these locations:**
 
-- `_workspace/preferences/*` — Check for personal details (name, role is fine — but flag if it contains anything beyond basic profile info)
+- `_workspace/references/*` — Check for personal details (name, role is fine — but flag if it contains anything beyond basic profile info)
 - **All user files in the workspace root and subfolders** — May contain contracts, personal documents, or confidential material. **Read each file** and flag anything that contains:
   - Personal identifiable information (addresses, birth dates, BSN/SSN, bank details)
   - Employment contracts, salary information
@@ -82,7 +82,7 @@ For **full exports**: warn about sensitive files but include them unless the use
 - `_assets/` (full folder)
 - `_workspace/config/` (all config files)
 - `_workspace/workflows/` (all workflow files)
-- `_workspace/preferences/` (include by default — these define the workspace personality and are useful as starting templates; but strip or generalize personal details like name/role if present)
+- `_workspace/references/` (include by default — these define the workspace personality and are useful as starting templates; but strip or generalize personal details like name/role if present)
 - `.gitignore`
 
 **Include as empty folders (create `.gitkeep` inside):**
@@ -100,10 +100,10 @@ For **full exports**: warn about sensitive files but include them unless the use
 - Include the folder structure but **not** the file contents — these are user data, not part of the reusable template
 - Create `.gitkeep` files to preserve the folder structure
 
-**Preferences handling:**
-- Copy `_workspace/preferences/` files but **strip all user-provided values**. Keep the structure (headings, field labels) intact so the file serves as a blank template. For example, `preferences.md` should look like:
+**User settings handling:**
+- Copy `_workspace/references/` files but **strip all user-provided values**. Keep the structure (headings, field labels) intact so the file serves as a blank template. For example, `user-settings.md` should look like:
   ```markdown
-  # User Preferences
+  # User Settings
 
   ## About
   - **Name:**
@@ -117,7 +117,7 @@ For **full exports**: warn about sensitive files but include them unless the use
   - **Detail level:**
   - **Tone:**
 
-  ## Workflow-Specific Preferences
+  ## Workflow-Specific Settings
   ```
   ...and so on for all sections. The new user will fill these in during their own setup.
 
@@ -131,7 +131,7 @@ Generate a `README.md` tailored to the exported workspace. Use this structure:
 
 ## What is this?
 
-This is a **Claude Workspace** — a structured folder of workflows, preferences, and templates that Claude uses to assist you. Open this folder in your editor with Claude Code, and Claude knows how to help.
+This is a **Claude Workspace** — a structured folder of workflows, references, and templates that Claude uses to assist you. Open this folder in your editor with Claude Code, and Claude knows how to help.
 
 ## Getting started
 
@@ -156,7 +156,7 @@ This is a **Claude Workspace** — a structured folder of workflows, preferences
 |--------|---------|
 | `_workspace/config/` | System workflows (don't edit) |
 | `_workspace/workflows/` | User-facing workflows |
-| `_workspace/preferences/` | Your preferences (filled during setup) |
+| `_workspace/references/` | References and user settings (filled during setup) |
 | `_workspace/logs/` | Session logs |
 ```
 
@@ -189,7 +189,7 @@ Populate the workflows table by reading the frontmatter (`name`, `description`, 
    1. Create a temp directory
    2. Copy included files/folders
    3. Create .gitkeep files in empty folders
-   4. Sanitize preferences (replace personal details with placeholders)
+   4. Sanitize user settings (replace personal details with placeholders)
    5. Zip the temp directory
    6. Clean up temp directory
    ```

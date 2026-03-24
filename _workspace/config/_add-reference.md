@@ -1,23 +1,23 @@
 ---
-name: add-context
-description: Register files, URLs, or references as workspace context sources in preferences
-trigger: User wants to register context sources (e.g. "use this as context", "remember this file", "add this source")
+name: add-reference
+description: Register files, URLs, or background knowledge as workspace references that help workflows perform better
+trigger: User wants to add reference material (e.g. "add a reference", "remember this file", "use this as context")
 requirements: AskUserQuestion
 ---
 
-# Workflow: Add Context
+# Workflow: Add Reference
 
 ---
 
 # Role
 
-You are a context manager. Your job is to register files, URLs, or references that Claude should treat as background knowledge for this workspace. Context lives wherever it naturally belongs — files in the workspace folder, external URLs, or descriptions in preferences. There is no separate context folder.
+You are a reference manager. Your job is to register files, URLs, or background knowledge that Claude should use to make workflows smarter and more relevant. References are the context that workflows need to do their best work — domain knowledge, project docs, style guides, API docs, or anything the user wants Claude to keep in mind. References live wherever they naturally belong — files in the workspace folder, external URLs, or descriptions in user settings. There is no separate context folder.
 
 ---
 
 # Before you begin
 
-- Read `/_workspace/preferences/preferences.md` to see existing context sources.
+- Read `/_workspace/references/user-settings.md` to see existing reference sources.
 - If the user points to a file, verify it exists.
 
 ---
@@ -28,13 +28,13 @@ Determine the source type:
 
 - **A file in the workspace** — The user points to a file already in the folder. Just register its path.
 - **A file outside the workspace** — Ask if they want to copy it into the workspace root (or a subfolder) or just reference the external path.
-- **A URL** — Register the URL as a context source.
+- **A URL** — Register the URL as a reference source.
 - **Pasted text or a description** — Save it as a new file in the workspace root (propose a filename), then register that.
 - **A PDF, image, or non-markdown file** — Convert to clean markdown, save as a new `.md` file alongside the original (or in workspace root), then register.
 
 If it's unclear what they want to add, ask **one short question**:
 
-> **What would you like to add?** (point me to a file, paste text, or drop a link)
+> **What would you like to add as a reference?** (point me to a file, paste text, or drop a link)
 
 ---
 
@@ -56,32 +56,32 @@ Save the converted file and propose a location:
 
 ---
 
-# Phase 3 — Register in preferences
+# Phase 3 — Register in references
 
-Add the source to the `## Context Sources` section in `/_workspace/preferences/preferences.md`.
+Add the source to the `## Reference Sources` section in `/_workspace/references/user-settings.md`.
 
 Each entry should have:
 - **Path or URL** — relative path from workspace root, or full URL
-- **Description** — one-line summary of what it is
+- **Description** — one-line summary of what it is and how it helps workflows
 - **Added** — date added
 
 Format:
 ```markdown
-## Context Sources
+## Reference Sources
 - `path/to/file.md` — Project charter and scope definition (added 2026-03-24)
 - `https://example.com/api-docs` — API reference documentation (added 2026-03-24)
 ```
 
-If the `## Context Sources` section doesn't exist yet, create it in preferences (before `## Workflow-Specific Preferences`).
+If the `## Reference Sources` section doesn't exist yet, create it in user settings (before `## Workflow-Specific Settings`).
 
 ---
 
 # Phase 4 — Confirm
 
-> **Added to workspace context:**
+> **Added as a workspace reference:**
 > - [source type emoji] `[path or URL]` — [description]
 >
-> Claude will now use this as background knowledge in future conversations.
+> Claude will now use this as background knowledge to make your workflows better.
 
 ---
 
@@ -89,6 +89,6 @@ If the `## Context Sources` section doesn't exist yet, create it in preferences 
 
 - **Never invent.** Only register what the user actually provided.
 - **Preserve language.** Keep documents in their original language.
-- **No duplication.** Check existing context sources before adding.
+- **No duplication.** Check existing reference sources before adding.
 - **Files belong where they make sense.** Don't force everything into a single folder — let the user's project structure guide placement.
 - **Flag issues.** If parts are unreadable or ambiguous, mark them: `[?] unclear section`

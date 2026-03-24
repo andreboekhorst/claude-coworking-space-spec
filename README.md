@@ -24,10 +24,10 @@ This repository is both the spec and a starter template. Everything here demonst
 ## ✨ Key Features
 
 - 🏗️ **Flexible blueprint** — You can use this blueprint for any set of tasks
-- 🧙🏽‍♂️ **Setup Wizard** — An initial workflow will ask for user preferences and check dependencies
-- 📚 **Context** — A custom context folder for reference material and domain knowledge
+- 🧙🏽‍♂️ **Setup Wizard** — An initial workflow will ask for user settings and check dependencies
+- 📚 **References** — Background knowledge and context that helps workflows perform better
 - 🔄 **Reusable workflows** — Define once, use across sessions and workspaces
-- 🧠 **Logging** — Context and preferences persist between sessions
+- 🧠 **Logging** — References and settings persist between sessions
 - 📦 **Progressive disclosure** — Only loads instructions when needed
 - ✏️ **No code required** — Just markdown files and folders
 
@@ -56,15 +56,14 @@ my-workspace/
     config/                            # System workflows (not user-facing).
       _setup.md                        # Onboarding and configuration.
       _log.md                          # Session logging.
-      _add-context.md                  # Document conversion.
+      _add-reference.md                 # Reference management.
       _add-workflow.md                 # Workflow builder.
       _export-workspace.md             # Export and packaging.
     workflows/                         # User-facing workflows. One file per workflow.
       [workflow-name].md
-    preferences/                       # User preferences (filled during setup).
-      preferences.md
+    references/                        # References and user settings (filled during setup).
+      user-settings.md
     logs/                              # Session logs. Gitignored.
-    context/                           # Reference material and domain knowledge. Gitignored.
 ```
 
 Rules:
@@ -118,7 +117,7 @@ Lists all folders, split into system folders (versioned, part of the template) a
 - `_workspace/workflows/`: User-facing workflow instructions
 
 ### User data folders (gitignored, personal to each user)
-- `_workspace/context/`: Reference material, background documents, and domain knowledge
+- `_workspace/references/`: Reference material, background knowledge, and user settings
 - `_workspace/logs/`: Session logs
 ```
 
@@ -139,7 +138,7 @@ Claude activates the matching workflow based on user intent. Read the user's int
 These are default workflows that come with any workspace:
 - Setup (`_workspace/config/_setup.md`): Says "set up my space", "configure", or opens the project for the first time. System workflow.
 - Logging (`_workspace/config/_log.md`): Session logging, runs after every workflow. System workflow.
-- Add Context (`_workspace/config/_add-context.md`): Wants to add a document or reference material (e.g. "add this to context", "convert this PDF", "save this document"). System workflow.
+- Add Reference (`_workspace/config/_add-reference.md`): Wants to add background knowledge or reference material (e.g. "add a reference", "remember this file", "save this document"). System workflow.
 - Add Workflow (`_workspace/config/_add-workflow.md`): Wants to add a new workflow or skill (e.g. "add a workflow", "I want a new skill", "create a workflow for X"). System workflow.
 - Export Workspace (`_workspace/config/_export-workspace.md`): Wants to export, share, or package the workspace (e.g. "export my workspace", "create a template", "zip this workspace"). System workflow.
 
@@ -217,7 +216,7 @@ Runs on first use. Must:
 1. Verify folders exist (create missing ones)
 2. Check requirements and report status
 3. Walk the user through personalization
-4. Save preferences to `_workspace/preferences/preferences.md`
+4. Save user settings to `_workspace/references/user-settings.md`
 5. Show available workflows
 6. Log the session
 7. Comment out the ACTIVATE line so setup doesn't repeat
@@ -229,11 +228,11 @@ Runs after every workflow. Must:
 2. Record which workflow ran, what happened, what files changed
 3. Never log private content: summarize topics only
 
-### Add Context (`_add-context.md`)
+### Add Reference (`_add-reference.md`)
 
-Lets users add reference material. Must:
+Lets users add reference material and background knowledge. Must:
 1. Accept documents, images, pasted text, or URLs
-2. Convert to clean markdown in `_workspace/context/`
+2. Convert to clean markdown and register as a reference source
 3. Preserve content faithfully: no summarizing
 
 ### Add Workflow (`_add-workflow.md`)

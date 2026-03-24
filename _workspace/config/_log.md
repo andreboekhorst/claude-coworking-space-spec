@@ -36,7 +36,7 @@ Each entry follows this exact structure. Do not deviate.
 
 | Field        | Value                                  |
 |--------------|----------------------------------------|
-| **Workflow** | [workflow name, e.g. setup / add-context / add-workflow] |
+| **Workflow** | [workflow name, e.g. setup / add-reference / add-workflow] |
 | **Trigger**  | [what the user said or did to start it] |
 | **Duration** | [approximate: short / medium / long]   |
 

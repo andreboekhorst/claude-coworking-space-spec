@@ -21,14 +21,15 @@ Always start each new step with a horizontal ruler (`---`) to visually separate 
 
 Every step MUST start with a progress indicator showing which step you're on. Format:
 
-[emoji] **Step X / 5** — [step name]
+[emoji] **Step X / 6** — [step name]
 
 Each step gets a unique emoji that fits its purpose. Use these:
 - Step 1: 👋 (Welcome)
 - Step 2: 🔧 (Tools)
-- Step 3: ✏️ (Design)
-- Step 4: 🏗️ (Build)
-- Step 5: 🎉 (Ready)
+- Step 3: 📎 (References)
+- Step 4: ✏️ (Design)
+- Step 5: 🏗️ (Build)
+- Step 6: 🎉 (Ready)
 
 This helps the user know where they are in the process and how much is left.
 
@@ -40,7 +41,7 @@ Before starting Step 1, greet the user warmly in 2-3 sentences. Explain that a *
 
 ---
 
-# Step 1 — Purpose (show: 👋 **Step 1 / 5** — What's this workspace for?)
+# Step 1 — Purpose (show: 👋 **Step 1 / 6** — What's this workspace for?)
 
 Check what the user already said. They might have already told you everything you need.
 
@@ -77,7 +78,7 @@ Each workflow in Step 3 should map directly to a problem identified here.
 
 ---
 
-# Step 2 — Tools (show: 🔧 **Step 2 / 5** — What tools do you want to use?)
+# Step 2 — Tools (show: 🔧 **Step 2 / 6** — What tools do you want to use?)
 
 ## Discover what's available
 
@@ -97,7 +98,29 @@ If there are no extra tools, skip the question and move on. If there are tools t
 
 ---
 
-# Step 3 — Workflows + identity (show: **Step 3 / 5** — Designing your workspace)
+# Step 3 — References (show: 📎 **Step 3 / 6** — Any documents I should know about?)
+
+Now that you understand what the workspace is for, ask if the user has any documents, files, or links that would help the workflows do a better job.
+
+## Ask about reference material
+
+Ask: Do you have any documents, files, or links I should use as reference material? Things like style guides, project briefs, templates, API docs — anything that would help me do a better job in your workflows.
+
+Explain briefly that references are background knowledge the workspace keeps on hand. They make workflows smarter because Claude can draw on them instead of working from scratch every time.
+
+## Handle the response
+
+- **If the user provides files or links** — For each one, run the Add Reference workflow (`/_workspace/config/_add-reference.md`) to register and convert them. Then confirm what was added and move on.
+- **If the user says "not right now" or "skip"** — That's fine. Let them know they can always add references later by saying "add a reference". Move on.
+- **If the user is unsure what to provide** — Give 2-3 concrete examples based on what they described in Step 1. Keep it short and relevant to their specific use case. For example, if they're building a content workspace: "Maybe a brand voice guide, or a few examples of posts you liked?" If they're building a project management workspace: "A project brief, or a template you usually follow?"
+
+## Multiple references
+
+The user might want to add several things at once. Process them one by one — register each through the Add Reference workflow before moving to the next. When done, give a quick summary of everything that was added.
+
+---
+
+# Step 4 — Workflows + identity (show: ✏️ **Step 4 / 6** — Designing your workspace)
 
 ## What to propose
 
@@ -124,7 +147,7 @@ Iterate until they're happy. Keep each round short.
 
 ---
 
-# Step 4 — Build (show: **Step 4 / 5** — Building it)
+# Step 5 — Build (show: 🏗️ **Step 5 / 6** — Building it)
 
 Tell them you're building it. Then silently do all of the following:
 
@@ -133,7 +156,7 @@ Tell them you're building it. Then silently do all of the following:
 Create these if missing:
 - `/_workspace/logs`
 - `/_workspace/workflows`
-- `/_workspace/preferences`
+- `/_workspace/references`
 - `/files/` — plus workspace-specific subfolders based on the workspace purpose (e.g. `/files/notes/`, `/files/exports/`, `/files/uploads/`). Choose 2-3 subfolders that make sense for the user's use case.
 
 ## Update CLAUDE.md
@@ -147,12 +170,12 @@ Create these if missing:
 - If MCP servers are used, update `### Recommended`
 - Add `## Do Not` entries if the user mentioned boundaries
 
-## Save preferences
+## Save user settings
 
-Write to `/_workspace/preferences/preferences.md`:
+Write to `/_workspace/references/user-settings.md`:
 
 ```markdown
-# User Preferences
+# User Settings
 
 ## About
 - **Name:** [name]
@@ -171,10 +194,10 @@ Write to `/_workspace/preferences/preferences.md`:
 - **Skills:** [list, or "none"]
 - **Built-in:** [list, or "all defaults"]
 
-## Context Sources
-(none yet — say "use this as context" to register files or URLs)
+## Reference Sources
+(none yet — say "add a reference" to register files or URLs that help workflows work better)
 
-## Workflow-Specific Preferences
+## Workflow-Specific Settings
 (none yet — workflows will add their own sections here as you use them)
 ```
 
@@ -202,7 +225,7 @@ Comment out the ACTIVATE line at the bottom of `CLAUDE.md`:
 
 ---
 
-# Step 5 — Reveal (show: 🎉 **Step 5 / 5** — Your workspace is ready)
+# Step 6 — Reveal (show: 🎉 **Step 6 / 6** — Your workspace is ready)
 
 ## Celebrate
 

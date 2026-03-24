@@ -1,6 +1,6 @@
 # Claude Workspace Designer
 - Name: Claude Workspace Designer
-- Description: A vanilla Claude Workspace template. A Workspace is a structured folder of workflows and preferences that turns Claude into a domain-specific assistant.
+- Description: A vanilla Claude Workspace template. A Workspace is a structured folder of workflows and references that turns Claude into a domain-specific assistant.
 - Version: 0.1.0
 - Author: (your name)
 
@@ -22,7 +22,7 @@ None — this Workspace works out of the box.
 
 ### User data folders (gitignored, personal to each user)
 - `_workspace/logs/`: Session logs
-- `_workspace/preferences/`: User preferences and settings
+- `_workspace/references/`: Reference material, context sources, and user settings — background knowledge that helps workflows perform better
 - `files/`: Uploaded files — all user-uploaded files go here. During setup, workspace-specific subfolders are created within this folder.
 
 
@@ -33,7 +33,7 @@ Claude activates the matching workflow based on user intent. Read the user's int
 These are default workflows that come with any workspace:
 - 🛠️ Setup (`_workspace/config/_setup.md`): First-time workspace configuration — say "set up my space" or "configure"
 - 📝 Logging (`_workspace/config/_log.md`): Automatic session logging — runs silently after every workflow
-- 📎 Add Context (`_workspace/config/_add-context.md`): Register files, URLs, or references — say "use this as context" or "remember this file"
+- 📎 Add Reference (`_workspace/config/_add-reference.md`): Register files, URLs, or background knowledge that helps workflows work better — say "add a reference" or "remember this file"
 - ⚡ Add Workflow (`_workspace/config/_add-workflow.md`): Create new workflows — say "add a workflow" or "create a workflow for X"
 - 📦 Export Workspace (`_workspace/config/_export-workspace.md`): Package and share — say "export my workspace" or "create a template"
 

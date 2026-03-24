@@ -1,5 +1,6 @@
 .claude
 .DS_Store
 /_workspace/logs/*
-/_workspace/context/*
+/_workspace/references/*
+/_workspace/workflows/*
 /files/*
