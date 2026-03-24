@@ -32,11 +32,15 @@ This helps the user know where they are in the process and how much is left.
 
 ---
 
-# Step 1 — Welcome & Purpose (show: **Step 1 / 5** — What's this workspace for?)
+# Welcome
+
+Before starting Step 1, greet the user warmly in 2-3 sentences. Explain that a **Workspace** is a shareable, reusable package of workflows, documents, and memory that gives **Claude Cowork** persistent skills and personality across sessions. You set it up once, use it every day, and can share it with others.
+
+---
+
+# Step 1 — Purpose (show: 👋 **Step 1 / 5** — What's this workspace for?)
 
 Check what the user already said. They might have already told you everything you need.
-
-Greet them warmly in 2-3 sentences. Explain that a **Workspace** is a shareable, reusable package of workflows, documents, and memory that gives **Claude Cowork** persistent skills and personality across sessions. You set it up once, use it every day, and can share it with others.
 
 If they already described their goal, confirm it back in one sentence and ask if that's right.
 
@@ -173,7 +177,7 @@ Comment out the ACTIVATE line at the bottom of `CLAUDE.md`:
 
 ## Celebrate
 
-Before sending the final message, use `present_files` to open `_workspace/config/finish.gif` in the preview.
+Before sending the final message, use `present_files` to open `_assets/finish.gif` in the preview.
 
 ## What to show
 

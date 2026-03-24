@@ -13,10 +13,13 @@ That's why we're proposing a blueprint for a Claude Workspace: a folder that tur
 
 This repository is both the spec and a starter template. Everything here demonstrates the patterns any Workspace should follow.
 
+---
+
 <p align="center">
   <big><big><a href="https://github.com/andreboekhorst/claude-workspace/archive/refs/heads/main.zip">🐚 Download claude-workspace.zip</a></big></big>
 </p>
 
+---
 
 ## ✨ Key Features
 
