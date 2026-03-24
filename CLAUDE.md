@@ -22,6 +22,7 @@ None — this Workspace works out of the box.
 
 ### User data folders (gitignored, personal to each user)
 - `_workspace/logs/`: Session logs
+- `files/`: Uploaded files — all user-uploaded files go here. During setup, workspace-specific subfolders are created within this folder.
 
 
 ## Workflows

@@ -94,6 +94,7 @@ Create these if missing:
 - `/_workspace/logs`
 - `/_workspace/workflows`
 - `/_workspace/preferences`
+- `/files/` — plus workspace-specific subfolders based on the workspace purpose (e.g. `/files/notes/`, `/files/exports/`, `/files/uploads/`). Choose 2-3 subfolders that make sense for the user's use case.
 
 ## Update CLAUDE.md
 
