@@ -56,15 +56,38 @@ As you enter each step, mark that task as `in_progress`. When a step is complete
 
 # Step 1 — Purpose (show: 👋 **Step 1 / 6** — What's this workspace for?)
 
-Check what the user already said. They might have already told you everything you need.
+Check what the user already said. They might have already told you everything you need. If they already described a clear goal, skip straight to "Match to a playbook" below.
 
-If they already described their goal, confirm it back in one sentence and ask if that's right.
+## Offer starting ideas
 
-Otherwise ask: What do you want this workspace to help you with?
+Before asking open-ended questions, read `/_playbooks/_index.md` and pick the **5 playbooks** that are most broadly useful or likely to resonate. Present them as a short list in conversation — one line each, name and description. For example:
 
-That's it. One sentence question. No examples, no lists.
+Here are some ideas to get started:
+1. **Content Pipeline** — Plan, draft, edit, publish content on a schedule
+2. **Meeting Operations** — Prep agendas, run meetings, capture decisions
+3. **Product Discovery** — Research users, validate ideas, write specs
+4. **Research Project** — Systematic investigation with structured findings
+5. **Client Engagement** — Proposals, deliverables, status reports
 
-## Dig into specific problems
+Then use `AskUserQuestion` with these options:
+- **One of these** — "One of these looks right" (let me pick)
+- **Show more** — "Show me more options"
+- **Build my own** — "I have something else in mind"
+
+### If the user picks one
+Read that playbook file in full. Confirm it back in one sentence: "So the goal is [playbook description] — does that capture it?" Then proceed to "Lock in the playbook" below.
+
+### If the user wants to see more
+Show the remaining 15 playbooks, grouped by category (use the index groupings). Then ask again: pick one, or build your own?
+
+### If the user wants to build their own
+Ask: What do you want this workspace to help you with?
+
+Then dig into specific problems with the sparring partner flow below. After understanding their goal, silently check `/_playbooks/_index.md` one more time — if a playbook matches what they described, read it and use it as internal scaffolding (don't mention it). If nothing matches, proceed without a playbook.
+
+## Dig into specific problems (freeform path only)
+
+Only use this section if the user chose "build my own" or if you need to clarify a vague answer.
 
 Don't settle for a general role or profession (e.g. "I'm a marketer"). You need to understand the **specific problems** the user wants solved.
 
@@ -74,30 +97,33 @@ Bad: "I do content marketing"
 Good: "I need to turn client briefs into project plans with time estimates"
 Bad: "I'm a project manager"
 
-## Be a sparring partner (max 3 questions)
+### Be a sparring partner (max 3 questions)
 
-Stay in Step 1 until the problem space is clear. This is the most important step — everything else builds on it. But keep it tight — **ask a maximum of 3 questions** before summarizing.
+Stay here until the problem space is clear. This is the most important step — everything else builds on it. But keep it tight — **ask a maximum of 3 questions** before summarizing.
 
 - Ask one follow-up at a time. Be curious, not interrogative.
 - Reflect back what you're hearing — "So it sounds like the real bottleneck is X?" — to help the user sharpen their thinking.
 - Probe for the pain: What takes too long? What's repetitive? What do they dread? Where do things fall through the cracks?
 - If they give a broad answer, zoom in: "When you say content creation, what part specifically eats your time — the writing, the research, the scheduling?"
 - Keep the energy collaborative — you're thinking through this together, not running a questionnaire.
-- If the user is stuck, offer concrete examples to spark ideas: "Some people use this to manage meetings and agendas, track learning projects, draft client proposals, or plan weekly content — anything like that resonate?"
 
-After at most 3 questions, summarize the 2-4 problems you've identified and ask: "Are these the right problems to solve?" Only proceed to Step 2 when they confirm.
+After at most 3 questions, summarize the 2-4 problems you've identified and ask: "Are these the right problems to solve?" Only proceed when they confirm.
 
-Each workflow in Step 3 should map directly to a problem identified here.
+## Lock in the playbook
 
-## Consult playbooks (internal — don't mention to user)
+Whether the user picked a playbook directly or you matched one silently, you should now have a playbook file loaded. This playbook gives you a head start on every remaining step:
 
-After the user confirms the problem summary, silently read `/_playbooks/_index.md`. If a playbook matches the user's project or goal, read that playbook file. Use it to:
-- Inform tool suggestions in Step 2 (check the playbook's "Required tools & skills")
-- Suggest relevant reference types in Step 3
-- Shape workflow proposals in Step 4 (draw from the playbook's "Workflow blueprints to use")
-- Guide folder structure in Step 5
+**Step 2 (Tools):** The playbook's "Required tools & skills" section lists which tools this type of work benefits from. When you present available tools, prioritize the ones the playbook recommends — mention them first and explain *why* they're useful for this specific workspace.
 
-Never mention playbooks or blueprints to the user. They're internal scaffolding.
+**Step 3 (References):** The playbook's "Useful references" section lists the kinds of documents that make this workspace smarter. When the user is unsure what to provide, suggest items directly from this list instead of generic examples.
+
+**Step 4 (Workflows):** The playbook's "Workflow blueprints to use" section lists which blueprints to draw from. For each workflow you propose, read the corresponding blueprint file from `/_workspace/config/blueprints/` and use its typical flow, inputs, outputs, and quality signals to shape your proposal. Map each blueprint to a specific user problem — don't just list the playbook's blueprints verbatim.
+
+**Step 5 (Build):** The playbook's "Folder structure" section suggests how to organize `files/`. Use it as the starting point for the subfolders you create. When writing workflow files, use the blueprints' `tools:` fields for the `requirements:` frontmatter and the blueprints' quality signals for the workflow's quality rules.
+
+If no playbook was matched (rare), proceed through Steps 2-5 without one — ask more questions to compensate.
+
+Each workflow in Step 4 should map directly to a problem the user confirmed.
 
 ---
 
@@ -109,9 +135,9 @@ Use `ToolSearch` with broad queries to find all available MCP servers and deferr
 
 ## Present tools to the user
 
-Tell the user what you found, grouped by type. Keep it casual — just name each tool and say in one sentence what it can do. For example: "I can see you have Google Calendar connected — that lets me read and create events for you."
+Tell the user what you found, grouped by type. Keep it casual — just name each tool and say in one sentence what it can do. If a playbook was matched, lead with the tools it recommends and explain why they're useful for this specific workspace. For example: "I can see you have Google Calendar connected — since you're managing meetings, that's going to be key for pulling in agendas and scheduling."
 
-If nothing was found beyond the defaults, say so — something like "You don't have any extra tools connected right now, but the basics are covered: web search, file management, and running commands."
+If nothing was found beyond the defaults, say so — something like "You don't have any extra tools connected right now, but the basics are covered: web search, file management, and running commands." If the matched playbook recommends tools that aren't available, mention what they'd unlock so the user can decide whether to set them up.
 
 ## Ask what to enable
 
@@ -135,7 +161,7 @@ Explain briefly that references are background knowledge the workspace keeps on 
 
 - **If the user provides files or links** — For each one, run the Add Reference workflow (`/_workspace/config/_add-reference.md`) to register and convert them. Then confirm what was added and move on.
 - **If the user says "not right now" or "skip"** — That's fine. Let them know they can always add references later by saying "add a reference". Move on.
-- **If the user is unsure what to provide** — Give 2-3 concrete examples based on what they described in Step 1. Keep it short and relevant to their specific use case. For example, if they're building a content workspace: "Maybe a brand voice guide, or a few examples of posts you liked?" If they're building a project management workspace: "A project brief, or a template you usually follow?"
+- **If the user is unsure what to provide** — Draw from the matched playbook's "Useful references" section to suggest 2-3 specific types of documents. Frame them as concrete examples relevant to their problems. If no playbook was matched, fall back to general examples based on Step 1.
 
 ## Multiple references
 
@@ -180,7 +206,7 @@ Create these if missing:
 - `/_workspace/logs`
 - `/_workspace/workflows`
 - `/_workspace/references`
-- `/files/` — plus workspace-specific subfolders based on the workspace purpose (e.g. `/files/notes/`, `/files/exports/`, `/files/uploads/`). Choose 2-3 subfolders that make sense for the user's use case.
+- `/files/` — plus workspace-specific subfolders. If a playbook was matched, use its "Folder structure" section as the starting point. Otherwise, choose 2-3 subfolders that make sense for the user's use case (e.g. `/files/notes/`, `/files/exports/`, `/files/uploads/`).
 
 ## Update CLAUDE.md
 
