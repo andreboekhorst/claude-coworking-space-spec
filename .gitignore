@@ -1,5 +1,5 @@
 .claude
-.DS_Store
+**/.DS_Store
 /_workspace/logs/*
 /_workspace/references/*
 /_workspace/workflows/*
