@@ -1,17 +1,15 @@
 ![Header](_assets/header.jpg)
 
-# 🐚 Superpowers for Claude Cowork
+## STEP 1 -> USe a template or setup your own!! Strong
 
-A Workspace is like a container for your Claude Cowork Projects:
-- You can configure it for any workflow
-- Your workspace is shareable and reusable
-- You can continuously improve your workspace while using it!
+# 🐚 Claude Workspace
 
-Claude Cowork leverages the power of Claude Code while working in the Claude App. Unfortunately it is missing some features like project-specific skills, memory, or workflows.
+A **Workspace** is a structured folder that turns Claude into a domain-specific assistant. It works with Claude Cowork — open a folder, and Claude follows the instructions inside.
 
-That's why we're proposing a blueprint for a Claude Workspace: a folder that turns Claude into a domain-specific assistant. A project that can just be opened as a folder within Claude. This project can have **multiple workflows** that are available to you.
+This repository contains two things:
 
-This repository is both the spec and a starter template. Everything here demonstrates the patterns any Workspace should follow.
+1. **The Workspace Protocol** — a spec for how any workspace should be structured so Claude can understand and operate it
+2. **The Workspace Designer** — a starter template that implements the protocol, with built-in workflows to help you build and customize your own workspace
 
 ---
 
@@ -20,16 +18,6 @@ This repository is both the spec and a starter template. Everything here demonst
 </p>
 
 ---
-
-## ✨ Key Features
-
-- 🏗️ **Flexible blueprint** — You can use this blueprint for any set of tasks
-- 🧙🏽‍♂️ **Setup Wizard** — An initial workflow will ask for user settings and check dependencies
-- 📚 **References** — Background knowledge and context that helps workflows perform better
-- 🔄 **Reusable workflows** — Define once, use across sessions and workspaces
-- 🧠 **Logging** — References and settings persist between sessions
-- 📦 **Progressive disclosure** — Only loads instructions when needed
-- ✏️ **No code required** — Just markdown files and folders
 
 
 ## 🚀 Getting Started
@@ -41,13 +29,26 @@ This repository is both the spec and a starter template. Everything here demonst
 5. Select "Use an existing folder", and select the folder you just unzipped
 6. Say hi! A setup wizard will walk you through configuration.
 
-## How does it work?
-Workspaces are designed for Claude Cowork, a feature in the Claude Desktop app that lets you open a folder as a project. When Claude Cowork opens a folder, it reads the CLAUDE.md file and follows the instructions inside. When needed it can read project-specific workflows for instructions that you give it, using a method called progressive disclosure.
+
+---
 
 
-## 📁 Structure
+# Part 1: The Workspace Protocol
 
-Every Workspace looks like this:
+The Workspace Protocol defines how a folder must be structured so Claude can discover workflows, load instructions on demand, and operate as a domain-specific assistant. Any workspace — whether built by hand or generated — should follow this spec.
+
+
+## Core Concepts
+
+- **CLAUDE.md as entry point** — Claude reads this file upfront. It contains just enough to identify user intent and route to the right workflow file.
+- **Progressive disclosure** — Full workflow instructions live in separate files and are loaded on-demand. This keeps the initial context small and focused.
+- **Workflows** — Standalone markdown files that tell Claude exactly what to do. Split into system workflows (setup, logging, etc.) and user workflows (what makes your workspace unique).
+- **References** — Background knowledge, user settings, and context that help workflows perform better.
+
+
+## Folder Structure
+
+Every workspace that follows the protocol looks like this:
 
 ```
 my-workspace/
@@ -56,7 +57,7 @@ my-workspace/
     config/                            # System workflows (not user-facing).
       _setup.md                        # Onboarding and configuration.
       _log.md                          # Session logging.
-      _add-reference.md                 # Reference management.
+      _add-reference.md                # Reference management.
       _add-workflow.md                 # Workflow builder.
       _export-workspace.md             # Export and packaging.
     workflows/                         # User-facing workflows. One file per workflow.
@@ -72,7 +73,7 @@ Rules:
 - All user data folders must be gitignored
 
 
-## 📄 CLAUDE.md
+## CLAUDE.md Spec
 
 The entry point. Claude reads this upfront and uses it to route user intent to workflow files. It must contain these sections, in order:
 
@@ -136,11 +137,11 @@ Claude activates the matching workflow based on user intent. Read the user's int
 
 ### Default Workflows
 These are default workflows that come with any workspace:
-- Setup (`_workspace/config/_setup.md`): Says "set up my space", "configure", or opens the project for the first time. System workflow.
-- Logging (`_workspace/config/_log.md`): Session logging, runs after every workflow. System workflow.
-- Add Reference (`_workspace/config/_add-reference.md`): Wants to add background knowledge or reference material (e.g. "add a reference", "remember this file", "save this document"). System workflow.
-- Add Workflow (`_workspace/config/_add-workflow.md`): Wants to add a new workflow or skill (e.g. "add a workflow", "I want a new skill", "create a workflow for X"). System workflow.
-- Export Workspace (`_workspace/config/_export-workspace.md`): Wants to export, share, or package the workspace (e.g. "export my workspace", "create a template", "zip this workspace"). System workflow.
+- Setup (`_workspace/config/_setup.md`): Says "set up my space", "configure", or opens the project for the first time.
+- Logging (`_workspace/config/_log.md`): Session logging, runs after every workflow.
+- Add Reference (`_workspace/config/_add-reference.md`): Wants to add background knowledge or reference material.
+- Add Workflow (`_workspace/config/_add-workflow.md`): Wants to add a new workflow or skill.
+- Export Workspace (`_workspace/config/_export-workspace.md`): Wants to export, share, or package the workspace.
 
 ### User Workflows
 - [Workflow Name] (`_workspace/workflows/[filename].md`): [Trigger description with 2-3 example phrases]
@@ -158,34 +159,13 @@ Must include at least these four:
 
 Authors can add more.
 
-```markdown
-## Ground Rules
-- Notes belong to the user: Never overwrite or delete existing notes without explicit permission.
-- Never invent: Only capture what the user actually said or provided. Don't add information that wasn't provided.
-- Always log sessions: After completing any workflow, read and execute `_workspace/config/_log.md` to append an entry to the daily log. No log = session not finished.
-- Read files first: Before modifying any existing file, ALWAYS read it first. Never append to a file you haven't read in this session.
-```
-
 ### Tone
 
 How Claude should communicate. Without it, Claude defaults to generic behavior.
 
-```markdown
-## Tone
-- Clear and direct
-- Match the user's energy: brief when they're brief, detailed when they want depth
-- Keep responses scannable: headers, short paragraphs, whitespace
-```
-
 ### Do Not
 
 Explicit anti-patterns for this workspace.
-
-```markdown
-## Do Not
-- Ask for input for the sake of asking a question when the answer is already implied by the user.
-- Invent information or add content the user didn't provide.
-```
 
 ### Setup Trigger
 
@@ -196,7 +176,7 @@ ACTIVATE: Setup workflow — read `_workspace/config/_setup.md` and execute.
 ```
 
 
-## 📝 Workflow Files
+## Workflow Files
 
 Each workflow is a standalone markdown file. It should contain everything Claude needs — don't assume context from other files.
 
@@ -206,63 +186,50 @@ Guidelines:
 - State constraints: if the workflow has rules, state them explicitly
 
 
-## ⚙️ Default Workflows
+## Default Workflows
 
-Every workspace includes these. They live in `_workspace/config/`.
+Every workspace includes these system workflows in `_workspace/config/`:
 
-### Setup (`_setup.md`)
-
-Runs on first use. Must:
-1. Verify folders exist (create missing ones)
-2. Check requirements and report status
-3. Walk the user through personalization
-4. Save user settings to `_workspace/references/user-settings.md`
-5. Show available workflows
-6. Log the session
-7. Comment out the ACTIVATE line so setup doesn't repeat
-
-### Logging (`_log.md`)
-
-Runs after every workflow. Must:
-1. Append to `_workspace/logs/LOG_yyyy_mm_dd.md` (one file per day)
-2. Record which workflow ran, what happened, what files changed
-3. Never log private content: summarize topics only
-
-### Add Reference (`_add-reference.md`)
-
-Lets users add reference material and background knowledge. Must:
-1. Accept documents, images, pasted text, or URLs
-2. Convert to clean markdown and register as a reference source
-3. Preserve content faithfully: no summarizing
-
-### Add Workflow (`_add-workflow.md`)
-
-Lets users create new workflows interactively. Must:
-1. Guide the user through defining trigger, input, output, and boundaries
-2. Write a complete workflow file to `_workspace/workflows/`
-3. Register the workflow in CLAUDE.md so Claude can discover it
-
-### Export Workspace (`_export-workspace.md`)
-
-Packages the workspace for sharing or backup. Must:
-1. Offer clean template (no personal data) or full export
-2. Run a security scan before packaging
-3. Generate a README for templates
-4. Deliver a zip file
+| Workflow | File | Purpose |
+|----------|------|---------|
+| Setup | `_setup.md` | First-run onboarding: verify folders, check requirements, personalize settings, show available workflows |
+| Logging | `_log.md` | Runs after every workflow: appends to daily log, records what happened and what changed |
+| Add Reference | `_add-reference.md` | Register documents, URLs, or background knowledge as reference material |
+| Add Workflow | `_add-workflow.md` | Interactively create new workflows and register them in CLAUDE.md |
+| Export | `_export-workspace.md` | Package the workspace for sharing (clean template or full export) |
 
 
-## 🛠️ Building Your Own
+---
+
+
+# Part 2: The Workspace Designer
+
+The Workspace Designer is a starter template that implements the Workspace Protocol. It's a ready-to-use workspace with all the default system workflows built in.
+
+## What It Does
+
+- **Setup Wizard** — Walks you through first-time configuration, checks dependencies, saves your settings
+- **References** — Add background knowledge and context that helps workflows perform better
+- **Reusable workflows** — Define once, use across sessions
+- **Logging** — Automatic session logging so context persists between sessions
+- **Self-improving** — Because Claude can read and modify its own instructions, you can continuously improve your workspace while using it
+- **No code required** — Just markdown files and folders
+
+## Building Your Own
 
 1. Copy this repo or create the structure from scratch
-2. Write your CLAUDE.md following the spec above
+2. Write your CLAUDE.md following the protocol spec above
 3. Create your setup workflow in `_workspace/config/_setup.md`
 4. Add workflow files to `_workspace/workflows/`
 5. Zip and share
 
 
+---
+
+
 ## 🔮 What's Next
 
-This spec is a draft. We're working toward:
+This is a draft. We're working toward:
 - A skill that generates Workspaces from a description
 - A library of community Workspaces
 - Native Claude Cowork integration

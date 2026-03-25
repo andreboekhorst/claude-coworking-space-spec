@@ -2,7 +2,7 @@
 name: setup
 description: First-run workspace designer — helps the user define their workspace identity, goals, and initial workflows
 trigger: Automatically triggered on first interaction via the ACTIVATE line in CLAUDE.md
-requirements: AskUserQuestion, ToolSearch
+requirements: AskUserQuestion, ToolSearch, TodoWrite
 ---
 
 # Workflow: Setup
@@ -38,6 +38,19 @@ This helps the user know where they are in the process and how much is left.
 # Welcome
 
 Before starting Step 1, greet the user warmly in 2-3 sentences. Explain that a **Workspace** is a shareable, reusable package of workflows, documents, and memory that gives **Claude Cowork** persistent skills and personality across sessions. You set it up once, use it every day, and can share it with others.
+
+## Initialize progress tracker
+
+Immediately after the welcome greeting, use the `TodoWrite` tool to create a task list showing all setup steps. This gives the user a clear overview of the process ahead. Create these tasks (all `pending` at first):
+
+1. content: "🦀 Define workspace purpose" / activeForm: "🦀 Defining workspace purpose"
+2. content: "🐚 Discover and select tools" / activeForm: "🐚 Discovering and selecting tools"
+3. content: "🧴 Add reference materials" / activeForm: "🧴 Adding reference materials"
+4. content: "🏄 Design workspace and workflows" / activeForm: "🏄 Designing workspace and workflows"
+5. content: "🏖️ Build the workspace" / activeForm: "🏖️ Building the workspace"
+6. content: "🌊 Reveal and launch" / activeForm: "🌊 Revealing and launching workspace"
+
+As you enter each step, mark that task as `in_progress`. When a step is completed, mark it as `completed` before moving on. This keeps the user informed of progress throughout the setup.
 
 ---
 

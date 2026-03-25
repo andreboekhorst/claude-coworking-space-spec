@@ -26,6 +26,14 @@ None — this Workspace works out of the box.
 - `files/`: Uploaded files — all user-uploaded files go here. During setup, workspace-specific subfolders are created within this folder.
 
 
+## File Index
+<!-- Auto-maintained by the index-files workflow. Do not edit manually. -->
+
+(no files yet — upload files to the `files/` folder)
+
+_Last indexed: 2026-03-25_
+
+
 ## Workflows
 Claude activates the matching workflow based on user intent. Read the user's intent and activate automatically — do not wait for a command.
 
@@ -36,6 +44,8 @@ These are default workflows that come with any workspace:
 - 📎 Add Reference (`_workspace/config/_add-reference.md`): Register files, URLs, or background knowledge that helps workflows work better — say "add a reference" or "remember this file"
 - ⚡ Add Workflow (`_workspace/config/_add-workflow.md`): Create new workflows — say "add a workflow" or "create a workflow for X"
 - 📦 Export Workspace (`_workspace/config/_export-workspace.md`): Package and share — say "export my workspace" or "create a template"
+- 📂 Index Files (`_workspace/config/_index-files.md`): Scan `files/` and update the file index in CLAUDE.md — runs after file changes, or say "index files"
+- 🔄 Resume (`_workspace/config/_resume.md`): Review recent activity and propose next steps — say "resume", "where was I", or "what's next"
 
 ### User Workflows
 (none yet — add workflows using the Add Workflow system workflow)

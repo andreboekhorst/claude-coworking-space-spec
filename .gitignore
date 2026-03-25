@@ -4,3 +4,4 @@
 /_workspace/references/*
 /_workspace/workflows/*
 /files/*
+!.gitkeep

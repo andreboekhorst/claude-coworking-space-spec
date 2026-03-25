@@ -91,6 +91,9 @@ requirements: [Tools/MCPs needed, or "none"]
 # Before you begin
 [What to read or check before starting — user settings, existing files, etc.]
 
+# Task tracking
+At the start of this workflow, use `TodoWrite` to create a task list covering each phase. Update task status as you progress — mark each task `in_progress` before starting it and `completed` when done. This gives the user visibility into where things stand.
+
 # Phase 1 — [Name]
 [First phase of the workflow. Usually: gather input or context.]
 
@@ -116,6 +119,7 @@ requirements: [Tools/MCPs needed, or "none"]
 - **Use `AskUserQuestion`** in the generated workflow wherever user input is needed during execution.
 - **Prefer fewer phases.** Not every workflow needs 4 phases. Simple workflows can have 2-3. Don't pad.
 - **Include file paths.** If the workflow creates or reads files, specify exact paths and naming conventions.
+- **Always include the `# Task tracking` section.** Every generated workflow must use `TodoWrite` to create a task list at the start and update it as phases progress. This is non-negotiable — it keeps the user informed.
 
 # Phase 4 — Register and wrap up
 
