@@ -8,6 +8,9 @@ description: Track spending, model budget scenarios, and produce clear financial
 
 A workspace for getting control of budgets and forecasts. Covers tracking actual spend against plan, building forward-looking models with multiple scenarios, and producing reports that help people make informed financial decisions.
 
+## Follow-up question
+What are you budgeting for?
+
 ## Core problems this workspace solves
 
 - Spending is not tracked consistently, so no one has a reliable picture of where money is going until it's too late.

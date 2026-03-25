@@ -8,6 +8,9 @@ description: Organize, write, and maintain documentation so knowledge is findabl
 
 A workspace for teams drowning in undocumented knowledge. This playbook turns tribal knowledge into structured, reviewable documentation with clear ownership and a maintenance cycle that keeps everything from going stale.
 
+## Follow-up question
+What kind of knowledge are you organizing, and who needs it?
+
 ## Core problems this workspace solves
 
 - Documentation is outdated — articles describe how things worked six months ago, eroding trust in the entire knowledge base.

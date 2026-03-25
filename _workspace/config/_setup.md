@@ -21,7 +21,7 @@ Always start each new step with a horizontal ruler (`---`) to visually separate 
 
 Every step MUST start with a progress indicator showing which step you're on. Format:
 
-[emoji] **Step X / 5** — [step name]
+[emoji] **Step X / 5 — [step name]**
 
 Each step gets a unique emoji that fits its purpose. Use these:
 - Step 1: 👋 (Purpose)
@@ -38,59 +38,47 @@ This helps the user know where they are in the process and how much is left.
 
 Before starting Step 1, greet the user warmly in 2-3 sentences. Explain that a **Workspace** is a shareable, reusable package of actions, documents, and memory that gives **Claude Cowork** persistent skills and personality across sessions. You set it up once, use it every day, and can share it with others.
 
-## Initialize progress tracker
-
-Immediately after the welcome greeting, use the `TodoWrite` tool to create a task list showing all setup steps. This gives the user a clear overview of the process ahead. Create these tasks (all `pending` at first):
-
-1. content: "🦀 Define workspace purpose" / activeForm: "🦀 Defining workspace purpose"
-2. content: "🐚 Discover and select tools" / activeForm: "🐚 Discovering and selecting tools"
-3. content: "🏄 Design workspace and actions" / activeForm: "🏄 Designing workspace and actions"
-4. content: "🏖️ Build the workspace" / activeForm: "🏖️ Building the workspace"
-5. content: "🌊 Reveal and launch" / activeForm: "🌊 Revealing and launching workspace"
-
-As you enter each step, mark that task as `in_progress`. When a step is completed, mark it as `completed` before moving on. This keeps the user informed of progress throughout the setup.
-
----
-
-# Step 1 — Purpose (show: 👋 **Step 1 / 5** — What's this workspace for?)
+# Step 1 — Purpose (show: 👋 **Step 1 / 5 — What shall we work on?**)
 
 Check what the user already said. They might have already told you everything you need. If they already described a clear goal, skip straight to "Match to a playbook" below.
 
-## Offer starting ideas
+## Ask what they're working on
 
-Before asking open-ended questions, read `/_playbooks/_index.md` and pick the **5 playbooks** that are most broadly useful or likely to resonate. Present them as a short list in conversation — one line each, name and description. For example:
+Read `/_playbooks/_index.md` first. Pick **3 playbooks** that are broadly useful and represent different categories. Read those 3 playbook files to get their real action names. Then print exactly this structure (with the real action names filled in):
 
-Here are some ideas to get started:
-1. **Create Content** — Actions: Plan, draft, edit, publish content on a schedule
-2. **Manage Meetings** — Actions: Prep agendas, run meetings, capture decisions
-3. **Discover Products** — Actions: Research users, validate ideas, write specs
-4. **Run Research** — Actions: Systematic investigation with structured findings
-5. **Improve Client Engagement** — Actions: Proposals, deliverables, status reports
+---
 
-Then use `AskUserQuestion` with these options:
-- **One of these** — "One of these looks right" (let me pick)
-- **Show more** — "Show me more options"
-- **Build my own** — "I have something else in mind"
+👋 **Step 1 / 5 — What are we working on?**
 
-### If the user picks one
-Read that playbook file in full. Don't ask for confirmation — just proceed directly to "Lock in the playbook" below and continue to Step 2.
+Here are some examples of workspaces you can set up:
 
-### If the user wants to see more
-Show the remaining playbooks as a clean numbered list — **name only**, no actions or descriptions. Group them by category using the index groupings as headers. For example:
+1. **Onboarding new people** — Plan, Checklist, Document, Teach, Review
+2. **Keeping track of meetings** — Prep, Debrief, Summarize, Decide
+3. **Managing client work** — Draft, Plan, Review, Summarize, Prep
 
-**Product & Strategy**
-6. Roadmap Planning
-7. Strategic Planning
-8. Venture Launch
+...or something else — like creating a knowledge base, doing market research, running a hiring process, or anything you can think of.
 
-**Content & Communication**
-9. Campaign Management
-...etc
+---
 
-Then ask again: pick one, or build your own?
+Then use `AskUserQuestion` with a **text input** (no preset options) — question: "What are we working on?"
 
-### If the user wants to build their own
-Ask: What do you want this workspace to help you with?
+## Initialize progress tracker
+
+Immediately after printing Step 1 and asking the user's first question, use the `TodoWrite` tool to create a task list showing all setup steps. This gives the user a clear overview of the process ahead. Create these tasks:
+
+1. content: "🦀 Define workspace purpose" / activeForm: "🦀 Defining workspace purpose" / status: `in_progress`
+2. content: "🐚 Discover and select tools" / activeForm: "🐚 Discovering and selecting tools" / status: `pending`
+3. content: "🏄 Design workspace and actions" / activeForm: "🏄 Designing workspace and actions" / status: `pending`
+4. content: "🏖️ Build the workspace" / activeForm: "🏖️ Building the workspace" / status: `pending`
+5. content: "🌊 Reveal and launch" / activeForm: "🌊 Revealing and launching workspace" / status: `pending`
+
+As you enter each step, mark that task as `in_progress`. When a step is completed, mark it as `completed` before moving on. This keeps the user informed of progress throughout the setup.
+
+### If the user picks one (from the top 3 or the list)
+Read that playbook file in full. Then ask the playbook's `## Follow-up question` — this is a simple, grounding question that tethers the workspace to the user's specific situation (e.g. "What role are you interviewing for?" or "What do you sell, and to whom?"). Use `AskUserQuestion` with a text input. Use their answer to personalize everything that follows — action descriptions, tone, examples, folder names. Then proceed to "Lock in the playbook" below and continue to Step 2.
+
+### If the user picks "Something else"
+Ask: What's eating your time right now? What do you keep doing manually that you wish just happened?
 
 Then dig into specific problems with the sparring partner flow below. After understanding their goal, silently check `/_playbooks/_index.md` one more time — if a playbook matches what they described, read it and use it as internal scaffolding (don't mention it). If nothing matches, proceed without a playbook.
 
@@ -134,7 +122,7 @@ Each action in Step 3 should map directly to a problem the user confirmed.
 
 ---
 
-# Step 2 — Tools (show: 🔧 **Step 2 / 5** — What tools do you want to use?)
+# Step 2 — Tools (show: 🔧 **Step 2 / 5 — What tools do you want to use?**)
 
 ## Discover what's available
 
@@ -142,7 +130,7 @@ Use `ToolSearch` with broad queries to find all available MCP servers and deferr
 
 ## Propose tools to the user
 
-Based on the playbook's recommended tools and what's actually available, propose a specific set of tools you'd enable. Present them as a short list — name and one sentence on why it's useful for this workspace. If nothing extra was found beyond the defaults, say so briefly.
+Based on the playbook's recommended tools and what's actually available, propose a specific set of tools you'd enable. Keep it ultra-compact — just the tool name, then a short phrase on how it fits this specific workspace. One line per tool, no explanations of what the tool does generically. If nothing extra was found beyond the defaults, say so briefly.
 
 Then use `AskUserQuestion` with:
 - **Looks good** — proceed with the proposed tools
@@ -152,7 +140,7 @@ Don't ask an open-ended question about which tools to enable. Just propose and l
 
 ---
 
-# Step 3 — Actions + identity (show: ✏️ **Step 3 / 5** — Designing your workspace)
+# Step 3 — Actions + identity (show: ✏️ **Step 3 / 5 — Designing your workspace**)
 
 ## What to propose
 
@@ -180,7 +168,7 @@ Iterate until they're happy. Keep each round short.
 
 ---
 
-# Step 4 — Build (show: 🏗️ **Step 4 / 5** — Building it)
+# Step 4 — Build (show: 🏗️ **Step 4 / 5 — Building it**)
 
 Tell them you're building it. Then silently do all of the following:
 
@@ -274,36 +262,28 @@ Comment out the ACTIVATE line at the bottom of `CLAUDE.md`:
 
 ---
 
-# Step 5 — Reveal (show: 🎉 **Step 5 / 5** — Your workspace is ready)
-
-## Celebrate
-
-Before sending the final message, use `present_files` to open `_assets/finish.gif` in the preview.
+# Step 5 — Reveal (show: 🎉 **Step 5 / 5 — Your workspace is ready**)
 
 ## What to show
 
-Tell them the workspace is ready, then:
+Keep it tight — the entire reveal should fit in one short screen. Format like this:
 
-1. List the actions that were set up. Use a bulleted list with a unique emoji for each action, a short description, and an example trigger phrase.
-2. List the directories created under `files/`, with a one-line explanation of what each one is for.
-3. Mention connected tools if any.
+**Line 1:** Welcome to your [Workspace Name] 🐚 — then list actions inline with emojis, separated by commas or pipes. One line, no bullets. Example:
+"Welcome to your Content Studio 🐚 — You can 📅 Plan your content, ✍️ Draft posts, ✂️ Edit for polish, and 🔄 Repurpose across channels."
 
-## Remind them it's flexible
+**Line 2:** One sentence about flexibility. Example:
+"Want to change how any action works or add new ones? Just ask."
 
-Let them know they can add or change actions anytime. Also mention that the `_playbooks/` folder at the root was used during setup and can be safely deleted if they want to keep the workspace clean.
+**Line 3:** "Here are some things to try:" followed by 2-3 example prompts that show realistic first uses. Write them as arrow-prefixed lines. Make them specific to the workspace — not generic. They should sound like things the user would actually say. Example:
+-> "Plan my content for next week"
+-> "Draft a LinkedIn post about [topic from their earlier conversation]"
+-> "I have a blog post — turn it into a tweet thread"
 
-## Offer to add reference materials
+That's it. No folder listings, no tool inventories, no reference material pitch. The user already confirmed all that — don't repeat it. If they want references, they'll ask (or you can suggest it naturally in a future session).
 
-After showing the workspace, suggest that adding reference materials will make the actions smarter. Draw from the matched playbook's "Useful references" section to give specific examples relevant to their workspace. Keep it casual and low-pressure — something like:
+## Show the finish image
 
-"One more thing — your actions will work better with some background material. Things like [2-3 specific examples from playbook]. Got anything like that you'd like to add? You can always do this later too."
-
-Use `AskUserQuestion` with:
-- **Yes, let's add some** — runs the Add Reference action (`/_workspace/config/_add-reference.md`)
-- **Later** — skip for now
-- **Try an action first** — jump straight into using the workspace
-
-If the user chooses to add references, process them through the Add Reference action. When done (or if they skip), end with: What would you like to try first?
+MANDATORY — do not skip this. After sending the welcome message, use `present_files` to open `_assets/finish.gif`. This must always be the final visual the user sees at the end of setup.
 
 ## Log the session
 

@@ -8,6 +8,9 @@ description: Plan and execute events end-to-end — logistics, agenda, speakers,
 
 A workspace for organizing events from initial concept through post-event wrap-up. Whether it's a team offsite, a conference, a workshop, or a company all-hands, this keeps every moving piece tracked and coordinated.
 
+## Follow-up question
+What's the event, and roughly how big?
+
 ## Core problems this workspace solves
 
 - Logistics are scattered across emails, messages, and spreadsheets with no single source of truth.

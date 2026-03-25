@@ -11,6 +11,9 @@ researching prospects through personalized outreach, tailored proposals,
 and systematic follow-up. Keeps your pipeline moving and your messaging sharp.
 
 
+## Follow-up question
+What do you sell, and to whom?
+
 ## Core problems this workspace solves
 
 - Prospecting is unfocused, wasting time on poor-fit leads.

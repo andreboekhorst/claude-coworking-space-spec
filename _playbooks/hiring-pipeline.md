@@ -8,6 +8,9 @@ description: Write job posts, design screening processes, and prepare structured
 
 A workspace for managing the end-to-end hiring process for one or more open roles. From writing the job description through screening candidates to preparing interviewers with the right questions.
 
+## Follow-up question
+What role are you hiring for?
+
 ## Core problems this workspace solves
 
 - Job descriptions are vague or bloated, attracting the wrong candidates and discouraging qualified ones.

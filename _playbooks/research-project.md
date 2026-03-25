@@ -11,6 +11,9 @@ source gathering, analysis, and final write-up. Keeps your investigation
 focused, your sources tracked, and your conclusions grounded.
 
 
+## Follow-up question
+What are you researching?
+
 ## Core problems this workspace solves
 
 - Research meanders without a clear question or scope, wasting time on tangents.

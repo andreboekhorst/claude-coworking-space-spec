@@ -8,6 +8,9 @@ description: Grow and engage a community through systematic content, feedback lo
 
 A workspace for community managers and team leads who need to keep a community healthy and growing. This playbook replaces reactive community management with a structured approach to engagement, content, feedback collection, and growth strategy.
 
+## Follow-up question
+What's the community about, and where does it live?
+
 ## Core problems this workspace solves
 
 - Engagement is declining — fewer people participate in discussions, events, or content, and you are not sure why.

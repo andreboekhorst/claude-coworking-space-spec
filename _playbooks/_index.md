@@ -3,41 +3,46 @@
 Curated workspace bundles for specific projects and goals. Each playbook defines which action blueprints to use, what tools are needed, and how to structure the workspace. Used during setup — removable after.
 
 ## Product & Strategy
-| Playbook | File | Description |
-|----------|------|-------------|
-| Product Discovery | `product-discovery.md` | Research users, validate ideas, write specs |
-| Roadmap Planning | `roadmap-planning.md` | Prioritize features, plan milestones, align stakeholders |
-| Strategic Planning | `strategic-planning.md` | Assess position, set goals, define initiatives |
-| Venture Launch | `venture-launch.md` | Validate idea, plan MVP, build pitch |
+| Playbook | File | Actions |
+|----------|------|---------|
+| Discover Products | `product-discovery.md` | Research users, validate ideas, write specs |
+| Plan Roadmaps | `roadmap-planning.md` | Prioritize features, plan milestones, align stakeholders |
+| Build Strategy | `strategic-planning.md` | Assess position, set goals, define initiatives |
+| Launch a Venture | `venture-launch.md` | Validate idea, plan MVP, build pitch |
 
 ## Content & Communication
-| Playbook | File | Description |
-|----------|------|-------------|
-| Content Pipeline | `content-pipeline.md` | Plan, draft, edit, publish content on a schedule |
-| Campaign Management | `campaign-management.md` | Messaging, channels, measurement |
-| Community Building | `community-building.md` | Engagement, content, feedback loops, growth |
-| Knowledge Base | `knowledge-base.md` | Organize, write, and maintain documentation |
+| Playbook | File | Actions |
+|----------|------|---------|
+| Create Content | `content-pipeline.md` | Plan, draft, edit, publish content on a schedule |
+| Run Campaigns | `campaign-management.md` | Messaging, channels, measurement |
+| Build Community | `community-building.md` | Engagement, content, feedback loops, growth |
+| Manage Knowledge | `knowledge-base.md` | Organize, write, and maintain documentation |
 
 ## Operations & Process
-| Playbook | File | Description |
-|----------|------|-------------|
-| Meeting Operations | `meeting-operations.md` | Prep agendas, run meetings, capture decisions |
-| Hiring Pipeline | `hiring-pipeline.md` | Job posts, screening, interview prep |
-| Onboarding Program | `onboarding-program.md` | Design the experience for new team members |
-| Process Improvement | `process-improvement.md` | Audit current process, identify waste, redesign |
-| Event Planning | `event-planning.md` | Logistics, agenda, speakers, follow-up |
-| Budget & Forecasting | `budget-forecasting.md` | Track spend, model scenarios, report |
+| Playbook | File | Actions |
+|----------|------|---------|
+| Manage Meetings | `meeting-operations.md` | Prep agendas, run meetings, capture decisions |
+| Run Hiring | `hiring-pipeline.md` | Job posts, screening, interview prep |
+| Onboard People | `onboarding-program.md` | Design the experience for new team members |
+| Improve Processes | `process-improvement.md` | Audit current process, identify waste, redesign |
+| Plan Events | `event-planning.md` | Logistics, agenda, speakers, follow-up |
+| Manage Budgets | `budget-forecasting.md` | Track spend, model scenarios, report |
 
 ## Research & Analysis
-| Playbook | File | Description |
-|----------|------|-------------|
-| Research Project | `research-project.md` | Systematic investigation with structured findings |
-| Data Analysis | `data-analysis.md` | Collect data, find patterns, present insights |
-| Client Engagement | `client-engagement.md` | Proposals, deliverables, status reports |
+| Playbook | File | Actions |
+|----------|------|---------|
+| Run Research | `research-project.md` | Systematic investigation with structured findings |
+| Analyze Data | `data-analysis.md` | Collect data, find patterns, present insights |
+| Improve Client Engagement | `client-engagement.md` | Proposals, deliverables, status reports |
+
+## Career & Personal
+| Playbook | File | Actions |
+|----------|------|---------|
+| Prep for Job Interviews | `job-interview-prep.md` | Research company, anticipate questions, practice answers, prep your questions, mock interview, debrief |
 
 ## Design & Learning
-| Playbook | File | Description |
-|----------|------|-------------|
-| Design Sprint | `design-sprint.md` | Problem framing, ideation, testing concepts |
-| Course Design | `course-design.md` | Structure lessons, activities, assessments |
-| Sales Process | `sales-process.md` | Prospect research, outreach, proposals, follow-up |
+| Playbook | File | Actions |
+|----------|------|---------|
+| Run Design Sprints | `design-sprint.md` | Problem framing, ideation, testing concepts |
+| Design Courses | `course-design.md` | Structure lessons, activities, assessments |
+| Manage Sales | `sales-process.md` | Prospect research, outreach, proposals, follow-up |

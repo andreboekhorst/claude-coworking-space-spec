@@ -9,6 +9,9 @@ description: Assess your current position, set meaningful goals, and define init
 A workspace for leaders and teams navigating high-level direction-setting. This playbook structures the work of understanding where you are, deciding where to go, and building a credible path to get there.
 
 
+## Follow-up question
+What's your organization, and what's on the horizon?
+
 ## Core problems this workspace solves
 
 - No clear direction — the organization reacts to events instead of driving toward a goal

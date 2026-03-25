@@ -9,6 +9,9 @@ description: Prioritize features, plan milestones, and align stakeholders around
 A workspace for turning a backlog of ideas into a sequenced, stakeholder-aligned plan. This playbook helps you prioritize ruthlessly, define clear milestones, and keep everyone on the same page as plans evolve.
 
 
+## Follow-up question
+What are you building, and what's the big goal?
+
 ## Core problems this workspace solves
 
 - Too many competing priorities with no framework for choosing between them

@@ -8,6 +8,9 @@ description: Plan, draft, edit, and publish content on a repeatable schedule.
 
 A workspace for teams and solo creators who need to move content from idea to published — consistently and on schedule. This playbook turns scattered writing efforts into a reliable production line with clear stages, quality gates, and a calendar to keep everything on track.
 
+## Follow-up question
+What are you writing about, and where does it go?
+
 ## Core problems this workspace solves
 
 - Publishing is inconsistent — content goes out in bursts followed by long silences, with no predictable cadence.

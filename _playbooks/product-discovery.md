@@ -9,6 +9,9 @@ description: Research users, validate ideas, and write specs that are grounded i
 A workspace for teams and individuals who need to move from assumptions to validated product decisions. This playbook structures the messy front-end of product work — from raw user signals to clear, actionable specs.
 
 
+## Follow-up question
+What kind of product are you exploring?
+
 ## Core problems this workspace solves
 
 - User needs are assumed rather than validated, leading to features nobody wants

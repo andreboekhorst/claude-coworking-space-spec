@@ -11,6 +11,9 @@ vague problem space to tested concepts through disciplined framing,
 divergent ideation, and rapid validation.
 
 
+## Follow-up question
+What are you designing, and who's in the room?
+
 ## Core problems this workspace solves
 
 - Teams jump to solutions before properly understanding the problem.

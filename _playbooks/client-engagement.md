@@ -11,6 +11,9 @@ through delivery and reporting. Keeps proposals sharp, deliverables
 consistent, and clients informed without the manual overhead.
 
 
+## Follow-up question
+What kind of clients do you work with?
+
 ## Core problems this workspace solves
 
 - Proposals take too long to produce and vary wildly in quality.

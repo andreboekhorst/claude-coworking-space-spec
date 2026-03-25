@@ -8,6 +8,9 @@ description: Prep agendas, run meetings, and capture decisions so nothing falls 
 
 A workspace for people who run meetings and need them to actually produce results. Covers the full lifecycle: preparation, facilitation support, and post-meeting follow-through.
 
+## Follow-up question
+What kind of meetings do you run most?
+
 ## Core problems this workspace solves
 
 - Meetings start without a clear agenda, so participants show up unprepared and time is wasted on alignment.

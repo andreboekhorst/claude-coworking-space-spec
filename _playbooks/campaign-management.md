@@ -8,6 +8,9 @@ description: Plan campaigns with consistent messaging, clear channels, and measu
 
 A workspace for running marketing or communications campaigns from concept through measurement. This playbook keeps messaging aligned across every channel, ensures nothing launches without a plan, and closes the loop by tracking what actually worked.
 
+## Follow-up question
+What are you promoting, and who's the audience?
+
 ## Core problems this workspace solves
 
 - Messaging is inconsistent across channels — the email says one thing, social says another, and the landing page tells a third story.

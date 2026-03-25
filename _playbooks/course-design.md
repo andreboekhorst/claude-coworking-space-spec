@@ -11,6 +11,9 @@ objectives through sequencing content, designing activities, and creating
 assessments. Produces a complete, teachable course package.
 
 
+## Follow-up question
+What are you teaching, and to whom?
+
 ## Core problems this workspace solves
 
 - Learning objectives are vague or missing, so lessons lack direction.

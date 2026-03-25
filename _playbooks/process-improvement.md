@@ -8,6 +8,9 @@ description: Audit a current process, identify waste and friction, then redesign
 
 A workspace for systematically improving how work gets done. Start by understanding the current state, find where time and effort are wasted, design a better process, and document it so the change actually sticks.
 
+## Follow-up question
+Which process are you looking at?
+
 ## Core problems this workspace solves
 
 - Existing processes are inefficient — they evolved organically and no one has examined them critically.

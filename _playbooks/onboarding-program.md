@@ -8,6 +8,9 @@ description: Design and manage a structured onboarding experience so new team me
 
 A workspace for building onboarding programs that get new hires productive faster. Covers planning the timeline, creating materials, tracking progress, and ensuring knowledge actually transfers.
 
+## Follow-up question
+Who are you onboarding — what role, what team?
+
 ## Core problems this workspace solves
 
 - Onboarding is ad hoc — each new hire gets a different experience depending on who happens to be available that week.

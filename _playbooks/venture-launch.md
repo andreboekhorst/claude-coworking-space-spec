@@ -9,6 +9,9 @@ description: Validate a business idea, scope an MVP, and build a compelling pitc
 A workspace for founders and entrepreneurial teams going from idea to launch. This playbook structures the critical early work — testing assumptions, defining what to build first, and crafting a pitch that earns attention and resources.
 
 
+## Follow-up question
+What's the idea — in one sentence?
+
 ## Core problems this workspace solves
 
 - The idea is untested — no evidence that the problem is real or the solution fits

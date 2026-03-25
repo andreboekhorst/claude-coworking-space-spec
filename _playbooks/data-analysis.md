@@ -11,6 +11,9 @@ from data collection and cleaning through pattern recognition, visualization,
 and narrative reporting.
 
 
+## Follow-up question
+What data are you working with, and what are you trying to find out?
+
 ## Core problems this workspace solves
 
 - Data lives in scattered files and formats with no single source of truth.
