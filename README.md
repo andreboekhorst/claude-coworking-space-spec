@@ -1,66 +1,55 @@
 ![Header](_assets/header.jpg)
 
-# 🐚 Workspace Designer 
-With workspace designer you have project-bound actions like in Claude Code, without needing to write any code or prompts yourself! 
-- 🔄 Self writing skills - Add and improve any of your skills
-- 🧙🏽‍♂️ Setup Wizard — An initial workflow will ask for user settings and check dependencies
-- 🏗️ Flexible blueprint — You can use this blueprint for any set of tasks
-- 📚 References — Background knowledge and context that helps workflows perform better
-- 🔄 Reusable workflows — Define once, use across sessions and workspaces
-- 🧠 Logging — References and settings persist between sessions
-- 📦 Progressive disclosure — Only loads instructions when needed
-- ✏️ No code required — Just markdown files and folders
+# Workspace Designer
 
+With Workspace Designer you have project-bound actions in Claude Code — without needing to write any code or prompts yourself!
 
+- **Setup wizard** — Configures the workspace through a conversation
+- **Self-writing actions** — Claude creates and updates its own action files
+- **References** — Register files, URLs, or notes as background knowledge
+- **Exportable** — Share your workspace as a reusable template
+- **All markdown** — No code, just folders and `.md` files
 
 ---
 
 <p align="center">
-  <big><big><a href="https://github.com/andreboekhorst/claude-workspace/archive/refs/heads/main.zip">🐚 Download claude-workspace.zip</a></big></big>
+  <big><big><a href="https://github.com/andreboekhorst/claude-coworking-space-spec/archive/refs/heads/main.zip">Download workspace-designer.zip</a></big></big>
 </p>
 
 ---
 
-## 🚀 Getting Started
-1. Download [this workspace](https://github.com/andreboekhorst/claude-workspace/archive/refs/heads/main.zip)
+## 🐚 Getting Started
+
+1. Download [this workspace](https://github.com/andreboekhorst/claude-coworking-space-spec/archive/refs/heads/main.zip)
 2. Unzip the file
-3. Open Claude Desktop, go to Claude Cowork
-4. Under the "Projects" section, click the + button to create a new Project
+3. Open Claude Desktop, go to Claude Code
+4. Under the "Projects" section, click the **+** button to create a new Project
 5. Select "Use an existing folder", and select the folder you just unzipped
 6. Say hi! A setup wizard will walk you through configuration.
 
+## 🏄 Workspace Agent Wizard
 
+When you open your empty project folder, all you need to do is say hi. A setup wizard will guide you through creating a workspace catered to your needs. After this, you can continuously update your workspace functionalities.
 
-## Workspace Agent Wizard
-When you open your emtpy project folder, all you need to do is say Hi. Then a setup wizard will guide you through creating a workspace exactly cathered for your needs. After this, you can continuously update your workspace functionalities. 
+## 🌊 Exporting and Reusing
 
-## Exporting and reusing
-When you are happy with your workspace, you can export and re-use your workspace for others to use. Just ask to export the project. It will strip any personal files from the project and create a zip file. 
-
-
-
-
-# How does it work?
-Claude Cowork is basically Claude Code under the hood. That means it can write it's own prompts! With this in mind we created a framework for a workspace that contains a defined structure, and a set of configurations, actions, logs and references. When you run an empty project for the first time, it will use these predefined configurations to help you set up a workspace and set up actions. 
-
-### Progressive disclosure
-Another technique that the workspace designer implements is progressive disclosure. This means that whenever you add new actions to your workflow, it does not just add it to the prompt. In the main entry file (CLAUDE.md) we list all of the actions that are available with a reference to the full instructions. 
-
-## Working with skills and connectors. 
-There are no limits. 
-
-## Next Steps
-I believe that using llms as a package will be the future of using claude, and this is a first step to reaching that. But there is still a lot of opportunities. We have now limited ourselves to writing our own prompts, but why not create your own bash files?
-
-## Security
-Always be wary about the code (or prompts) that you are using on your computer! you can check this folder as it is all in markdown files in this project.
+When you are happy with your workspace, you can export and reuse it for others. Just ask to export the project. It will strip any personal files from the project and create a zip file.
 
 ---
----
 
-# The  Framework
+## 🏖️ How Does It Work?
+
+Workspace Designer uses Claude Code under the hood. That means it can write its own prompts! With this in mind we created a framework for a workspace that contains a defined structure, and a set of configurations, actions, logs, and references. When you run an empty project for the first time, it will use these predefined configurations to help you set up a workspace and create actions.
+
+### Progressive Disclosure
+
+Whenever you add new actions to your workflow, they are not added directly to the prompt. In the main entry file (`CLAUDE.md`) we list all available actions with a reference to the full instructions. The detailed instructions are only loaded on-demand when an action is activated.
+
+
+
+# 🐠 The Workspace Protocol
+
 The Workspace Protocol defines how a folder must be structured so Claude can discover actions, load instructions on demand, and operate as a domain-specific assistant. Any workspace — whether built by hand or generated — should follow this spec.
-
 
 ### Core Concepts
 
@@ -68,7 +57,6 @@ The Workspace Protocol defines how a folder must be structured so Claude can dis
 - **Progressive disclosure** — Full action instructions live in separate files and are loaded on-demand. This keeps the initial context small and focused.
 - **Actions** — Standalone markdown files that tell Claude exactly what to do. Split into system actions (setup, logging, etc.) and user actions (what makes your workspace unique).
 - **References** — Background knowledge, user settings, and context that help actions perform better.
-
 
 ### Folder Structure
 
@@ -96,7 +84,6 @@ Rules:
 - Files prefixed with `_` are system files
 - All user data folders must be gitignored
 
-
 ### CLAUDE.md Spec
 
 The entry point. Claude reads this upfront and uses it to route user intent to action files. It must contain these sections, in order:
@@ -115,8 +102,8 @@ The entry point. Claude reads this upfront and uses it to route user intent to a
 
 What the workspace needs. Two levels:
 
-- Hard: Won't work without these. Setup should block or warn prominently.
-- Recommended: Works without these, but some actions will be limited.
+- **Hard:** Won't work without these. Setup should block or warn prominently.
+- **Recommended:** Works without these, but some actions will be limited.
 
 If there are no hard requirements, say so explicitly.
 
@@ -130,7 +117,7 @@ None — this Workspace works out of the box.
 - Google Calendar MCP: Enables calendar-based actions. Without it, actions relying on calendar data require manual input.
 ```
 
-### Folder Structure
+#### Folder Structure
 
 Lists all folders, split into system folders (versioned, part of the template) and user data folders (gitignored, created during setup).
 
@@ -146,12 +133,12 @@ Lists all folders, split into system folders (versioned, part of the template) a
 - `_workspace/logs/`: Session logs
 ```
 
-### Actions
+#### Actions
 
 Maps user intent to action files. Every entry needs a name, a file path, and trigger examples. Split into:
 
-- Default Actions: Setup, Logging, Add Context, Add Action, Export. System actions present in every workspace.
-- User Actions: What makes this workspace unique.
+- **Default Actions:** Setup, Logging, Add Context, Add Action, Export. System actions present in every workspace.
+- **User Actions:** What makes this workspace unique.
 
 Must end with: `Before executing any action, you MUST read its instruction file in full.`
 
@@ -173,7 +160,7 @@ These are default actions that come with any workspace:
 Before executing any action, you MUST read its instruction file in full. This is progressive disclosure — the detailed instructions are loaded on-demand, not upfront.
 ```
 
-### Ground Rules
+#### Ground Rules
 
 Must include at least these four:
 - User data is sacred: never overwrite or delete without permission
@@ -183,15 +170,15 @@ Must include at least these four:
 
 Authors can add more.
 
-### Tone
+#### Tone
 
 How Claude should communicate. Without it, Claude defaults to generic behavior.
 
-### Do Not
+#### Do Not
 
 Explicit anti-patterns for this workspace.
 
-### Setup Trigger
+#### Setup Trigger
 
 Last line. Triggers the setup action on first run, then gets commented out:
 
@@ -199,8 +186,7 @@ Last line. Triggers the setup action on first run, then gets commented out:
 ACTIVATE: Setup action — read `_workspace/config/_setup.md` and execute.
 ```
 
-
-## Action Files
+### Action Files
 
 Each action is a standalone markdown file. It should contain everything Claude needs — don't assume context from other files.
 
@@ -209,8 +195,7 @@ Guidelines:
 - Include examples: show expected output format, file naming, templates
 - State constraints: if the action has rules, state them explicitly
 
-
-## Default Actions
+### Default Actions
 
 Every workspace includes these system actions in `_workspace/config/`:
 
@@ -222,52 +207,33 @@ Every workspace includes these system actions in `_workspace/config/`:
 | Add Action | `_add-action.md` | Interactively create new actions and register them in CLAUDE.md |
 | Export | `_export-workspace.md` | Package the workspace for sharing (clean template or full export) |
 
-
 ---
 
-
-# Part 2: The Workspace Designer
-
-The Workspace Designer is a starter template that implements the Workspace Protocol. It's a ready-to-use workspace with all the default system actions built in.
-
-## What It Does
-
-- **Setup Wizard** — Walks you through first-time configuration, checks dependencies, saves your settings
-- **References** — Add background knowledge and context that helps actions perform better
-- **Reusable actions** — Define once, use across sessions
-- **Logging** — Automatic session logging so context persists between sessions
-- **Self-improving** — Because Claude can read and modify its own instructions, you can continuously improve your workspace while using it
-- **No code required** — Just markdown files and folders
-
-## Building Your Own
+## 🐡 Building Your Own
 
 1. Copy this repo or create the structure from scratch
-2. Write your CLAUDE.md following the protocol spec above
+2. Write your `CLAUDE.md` following the protocol spec above
 3. Create your setup action in `_workspace/config/_setup.md`
 4. Add action files to `_workspace/actions/`
 5. Zip and share
 
-
 ---
-
 
 ## 🔮 What's Next
 
 This is a draft. We're working toward:
 - A skill that generates Workspaces from a description
 - A library of community Workspaces
-- Native Claude Cowork integration
+- Native integration with Claude Code
 
-
-## FAQ
+## 🦀 FAQ
 
 **Why not just use Claude Skills?**
 Claude Skills can be used within the Claude app, but they are not bound to a specific project or action. Also, it is a lot easier to configure new actions within your workspace, and because Claude can change its own instructions — you can continuously improve your actions!
 
 **What is progressive disclosure?**
-Progressive disclosure means Claude only loads the instructions it needs, when it needs them. The CLAUDE.md file is lean — it contains just enough to identify user intent and route to the right action. The full instructions for each action are read on-demand when activated. This keeps context small and focused.
-
+Progressive disclosure means Claude only loads the instructions it needs, when it needs them. The `CLAUDE.md` file is lean — it contains just enough to identify user intent and route to the right action. The full instructions for each action are read on-demand when activated. This keeps context small and focused.
 
 ## ⚠️ Security Notice
 
-Workspaces are essentially prompt files that instruct Claude how to behave. Before using any Workspace you didn't author yourself, **read every markdown file in the project** — especially `CLAUDE.md` and the action files in `_workspace/`. Treat them like code: a malicious or poorly written prompt could instruct Claude to overwrite files, exfiltrate content, or behave in unexpected ways. Only run Workspaces from sources you trust, and review any changes before applying them to your own setup.
+Workspaces are essentially prompt files that instruct Claude how to behave. Before using any workspace you didn't author yourself, **read every markdown file in the project** — especially `CLAUDE.md` and the action files in `_workspace/`. Treat them like code: a malicious or poorly written prompt could instruct Claude to overwrite files, exfiltrate content, or behave in unexpected ways. Only run workspaces from sources you trust, and review any changes before applying them to your own setup.
