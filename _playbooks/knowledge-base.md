@@ -27,6 +27,16 @@ What kind of knowledge are you organizing, and who needs it?
 - **Explain** — Break down complex topics into clear, accessible explanations suitable for the target audience.
 - **Review** — Run a quality and consistency check on documents before they are published or after major updates.
 
+## Action outputs
+
+| Action | Output | Format | Folder |
+|--------|--------|--------|--------|
+| Document | New documentation article following standard template | Markdown | `files/docs/` |
+| Edit | Revised document with accuracy and clarity improvements | Markdown | `files/docs/` |
+| Checklist | Review and maintenance checklist | Markdown | `files/templates/` |
+| Explain | Accessible explanation of a complex topic | Markdown | `files/docs/` |
+| Review | Quality and consistency report for a document | Markdown | `files/docs/` |
+
 ## Required tools & skills
 
 No additional tools required. This playbook works entirely with Claude's built-in reading and writing capabilities.

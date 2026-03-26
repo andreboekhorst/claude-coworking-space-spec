@@ -27,6 +27,16 @@ What are you writing about, and where does it go?
 - **Review** — Get a final quality check against your brand voice guide and publishing standards.
 - **Summarize** — Condense published pieces into social posts, newsletters, or internal briefs for repurposing.
 
+## Action outputs
+
+| Action | Output | Format | Folder |
+|--------|--------|--------|--------|
+| Plan Content | Editorial calendar with topics, dates, and channels | Markdown | `files/calendar/` |
+| Draft | First draft of a content piece | Markdown | `files/drafts/` |
+| Edit | Revised draft with tracked changes and notes | Markdown | `files/drafts/` |
+| Review | Final quality-checked version ready to publish | Markdown | `files/published/` |
+| Summarize | Repurposed versions for other channels | Markdown | `files/drafts/` |
+
 ## Required tools & skills
 
 - **Google Calendar** (MCP) — Manage the publishing schedule, set deadlines, and track what is due when.

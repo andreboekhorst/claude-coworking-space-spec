@@ -32,6 +32,16 @@ What are you researching?
 - **Draft** — Turn synthesized findings into polished reports or documents.
 
 
+## Action outputs
+
+| Action | Output | Format | Folder |
+|--------|--------|--------|--------|
+| Research | Organized source notes around specific questions | Markdown | `files/notes/` |
+| Synthesize | Cross-source patterns and themes | Markdown | `files/findings/` |
+| Verify | Fact-check report with flagged contradictions | Markdown | `files/notes/` |
+| Summarize | Concise research brief | Markdown | `files/findings/` |
+| Draft | Polished research report or document | Markdown | `files/findings/` |
+
 ## Required tools & skills
 
 - **WebSearch** — Find relevant sources, papers, articles, and data online.

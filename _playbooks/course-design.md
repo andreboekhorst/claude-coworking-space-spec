@@ -32,6 +32,16 @@ What are you teaching, and to whom?
 - **Explain** — Break down difficult concepts into accessible, layered explanations.
 
 
+## Action outputs
+
+| Action | Output | Format | Folder |
+|--------|--------|--------|--------|
+| Teach | Structured explanation building from simple to complex | Markdown | `files/materials/` |
+| Plan | Full course map with modules, lessons, and timing | Markdown | `files/curriculum/` |
+| Draft | Lesson content, instructions, or handouts | Markdown | `files/materials/` |
+| Checklist | Rubric or quality checklist for materials | Markdown | `files/assessments/` |
+| Explain | Accessible breakdown of a difficult concept | Markdown | `files/materials/` |
+
 ## Required tools & skills
 
 No additional tools required. This playbook runs entirely within Claude

@@ -30,6 +30,16 @@ What's your organization, and what's on the horizon?
 - **Review** — Assess progress against goals and adjust course as conditions change
 
 
+## Action outputs
+
+| Action | Output | Format | Folder |
+|--------|--------|--------|--------|
+| Research | Market intelligence and environmental scan | Markdown | `files/analysis/` |
+| Plan | Strategic initiative plan with milestones | Markdown | `files/strategy/` |
+| Prioritize | Ranked initiative list with scoring rationale | Markdown | `files/strategy/` |
+| Decide | Strategic decision record with trade-offs | Markdown | `files/strategy/` |
+| Review | Progress assessment against goals | Markdown | `files/goals/` |
+
 ## Required tools & skills
 
 - **WebSearch** — Research market trends, competitive moves, and industry analysis

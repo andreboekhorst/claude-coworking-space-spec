@@ -32,6 +32,16 @@ What do you sell, and to whom?
 - **Review** — Evaluate proposals and outreach for quality, relevance, and clarity.
 
 
+## Action outputs
+
+| Action | Output | Format | Folder |
+|--------|--------|--------|--------|
+| Research | Prospect/company profile with pain points and signals | Markdown | `files/prospects/` |
+| Draft | Personalized outreach email, proposal, or follow-up | Markdown | `files/proposals/` |
+| Pitch | Value proposition or presentation narrative | Markdown | `files/proposals/` |
+| Anticipate | Objection list with prepared responses | Markdown | `files/prospects/` |
+| Review | Quality check on proposal or outreach | Markdown | `files/proposals/` |
+
 ## Required tools & skills
 
 - **WebSearch** — Research prospects, companies, industries, and competitive landscape.

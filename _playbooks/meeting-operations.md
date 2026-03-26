@@ -27,6 +27,16 @@ What kind of meetings do you run most?
 - **Summarize** — Turn raw meeting notes into concise summaries for stakeholders who weren't present.
 - **Decide** — Structure decision-making during meetings using clear criteria and options, so the group reaches closure.
 
+## Action outputs
+
+| Action | Output | Format | Folder |
+|--------|--------|--------|--------|
+| Prep | Meeting agenda with goals, time blocks, and pre-reads | Markdown | `files/agendas/` |
+| Debrief | Decisions, action items, and open questions | Markdown | `files/notes/` |
+| Checklist | Reusable pre- and post-meeting checklist | Markdown | `files/actions/` |
+| Summarize | Concise meeting summary for stakeholders | Markdown | `files/notes/` |
+| Decide | Decision record with options, criteria, and outcome | Markdown | `files/notes/` |
+
 ## Required tools & skills
 
 - **Google Calendar** — For viewing upcoming meetings, checking scheduling conflicts, and linking agendas to calendar events.

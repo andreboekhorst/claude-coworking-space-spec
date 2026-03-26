@@ -30,6 +30,16 @@ What kind of product are you exploring?
 - **Compare** — Evaluate competing ideas, features, or approaches side by side
 
 
+## Action outputs
+
+| Action | Output | Format | Folder |
+|--------|--------|--------|--------|
+| Research | Structured findings from interviews, surveys, or analytics | Markdown | `files/research/` |
+| Synthesize | Patterns and actionable insights across sources | Markdown | `files/insights/` |
+| Decide | Decision record with options and evidence | Markdown | `files/insights/` |
+| Draft | Product spec, brief, or proposal | Markdown | `files/specs/` |
+| Compare | Side-by-side evaluation of ideas or features | Markdown | `files/insights/` |
+
 ## Required tools & skills
 
 - **WebSearch** — Look up market context, competitor features, and industry benchmarks

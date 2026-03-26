@@ -32,6 +32,16 @@ What kind of clients do you work with?
 - **Prep** — Prepare agendas, talking points, and background briefs for client meetings.
 
 
+## Action outputs
+
+| Action | Output | Format | Folder |
+|--------|--------|--------|--------|
+| Draft | Proposal, deliverable, or client-facing document | Markdown | `files/deliverables/` |
+| Plan | Project plan with phases, milestones, and tasks | Markdown | `files/proposals/` |
+| Review | Quality-checked deliverable with revision notes | Markdown | `files/deliverables/` |
+| Summarize | Status update or meeting recap | Markdown | `files/updates/` |
+| Prep | Meeting agenda, talking points, or background brief | Markdown | `files/updates/` |
+
 ## Required tools & skills
 
 - **Google Calendar** — Track client meetings, deadlines, and review cycles.

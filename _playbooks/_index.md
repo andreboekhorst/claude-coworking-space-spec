@@ -9,6 +9,7 @@ Curated workspace bundles for specific projects and goals. Each playbook defines
 | Plan Roadmaps | `roadmap-planning.md` | Prioritize features, plan milestones, align stakeholders |
 | Build Strategy | `strategic-planning.md` | Assess position, set goals, define initiatives |
 | Launch a Venture | `venture-launch.md` | Validate idea, plan MVP, build pitch |
+| Build OKRs | `okr-framework.md` | Draft, review, align, and score OKRs across company and teams |
 
 ## Content & Communication
 | Playbook | File | Actions |

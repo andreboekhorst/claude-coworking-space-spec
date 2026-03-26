@@ -27,6 +27,16 @@ Which process are you looking at?
 - **Document** — Write clear process documentation for the redesigned process, including roles, steps, and decision rules.
 - **Checklist** — Create implementation checklists for rolling out the new process and verifying adoption.
 
+## Action outputs
+
+| Action | Output | Format | Folder |
+|--------|--------|--------|--------|
+| Research | End-to-end current process map | Markdown | `files/audits/` |
+| Evaluate | Bottleneck and waste analysis | Markdown | `files/audits/` |
+| Decide | Prioritized improvement recommendations | Markdown | `files/proposals/` |
+| Document | Redesigned process documentation (SOP) | Markdown | `files/procedures/` |
+| Checklist | Implementation and adoption checklist | Markdown | `files/proposals/` |
+
 ## Required tools & skills
 
 - No external tools required. This playbook works entirely with file-based research, analysis, and documentation.

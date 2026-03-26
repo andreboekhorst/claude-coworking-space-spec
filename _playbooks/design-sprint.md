@@ -32,6 +32,16 @@ What are you designing, and who's in the room?
 - **Draft** — Document concepts, decisions, and next steps for handoff.
 
 
+## Action outputs
+
+| Action | Output | Format | Folder |
+|--------|--------|--------|--------|
+| Research | User insights and constraints summary | Markdown | `files/research/` |
+| Brainstorm | Clustered ideas with evaluation notes | Markdown | `files/concepts/` |
+| Decide | Evaluation matrix and selected direction | Markdown | `files/concepts/` |
+| Pre-mortem | Risk analysis with mitigation strategies | Markdown | `files/concepts/` |
+| Draft | Concept document and next steps for handoff | Markdown | `files/prototypes/` |
+
 ## Required tools & skills
 
 No additional tools required. This playbook runs entirely within Claude

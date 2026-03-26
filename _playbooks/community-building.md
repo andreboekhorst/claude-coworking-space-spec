@@ -27,6 +27,16 @@ What's the community about, and where does it live?
 - **Plan Content** — Build a community content calendar that balances announcements, discussions, and member spotlights.
 - **Debrief** — Review events, campaigns, or time periods to extract lessons and adjust the community strategy.
 
+## Action outputs
+
+| Action | Output | Format | Folder |
+|--------|--------|--------|--------|
+| Scan | Themes and sentiment report from community channels | Markdown | `files/feedback/` |
+| Research | Best practices and competitor community analysis | Markdown | `files/reports/` |
+| Draft | Community post, announcement, or outreach message | Markdown | `files/content/` |
+| Plan Content | Community content calendar | Markdown | `files/content/` |
+| Debrief | Event or campaign review with lessons learned | Markdown | `files/reports/` |
+
 ## Required tools & skills
 
 - **WebSearch** — Research community management best practices, competitor communities, and relevant industry trends.

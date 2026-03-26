@@ -32,6 +32,16 @@ What data are you working with, and what are you trying to find out?
 - **Draft** — Produce polished reports with narrative, charts, and recommendations.
 
 
+## Action outputs
+
+| Action | Output | Format | Folder |
+|--------|--------|--------|--------|
+| Research | Domain context and background summary | Markdown | `files/analysis/` |
+| Synthesize | Combined data patterns and identified trends | Markdown | `files/analysis/` |
+| Summarize | Executive-level takeaways | Markdown | `files/reports/` |
+| Explain | Non-technical breakdown of findings | Markdown | `files/reports/` |
+| Draft | Polished report with narrative and recommendations | Markdown | `files/reports/` |
+
 ## Required tools & skills
 
 - **Bash** — Run data processing scripts, transformations, and quick calculations.

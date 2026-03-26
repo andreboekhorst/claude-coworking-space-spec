@@ -27,6 +27,16 @@ What are you promoting, and who's the audience?
 - **Research** — Investigate competitor campaigns, audience behavior, and market context to ground your strategy in evidence.
 - **Review** — Run a pre-launch check on all campaign materials against brand guidelines and the campaign brief.
 
+## Action outputs
+
+| Action | Output | Format | Folder |
+|--------|--------|--------|--------|
+| Plan | Campaign brief with objectives, timeline, and metrics | Markdown | `files/campaigns/` |
+| Draft | Channel-specific campaign copy | Markdown | `files/assets/` |
+| Compare | Side-by-side evaluation of messaging or channel options | Markdown | `files/campaigns/` |
+| Research | Competitor and audience analysis | Markdown | `files/campaigns/` |
+| Review | Pre-launch quality check against brief and guidelines | Markdown | `files/assets/` |
+
 ## Required tools & skills
 
 - **WebSearch** — Research competitor campaigns, industry benchmarks, and audience trends to inform strategy and creative.

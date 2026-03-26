@@ -24,7 +24,7 @@ Every step MUST start with a progress indicator showing which step you're on. Fo
 [emoji] **Step X / 5 — [step name]**
 
 Each step gets a unique emoji that fits its purpose. Use these:
-- Step 1: 👋 (Purpose)
+- Step 1: 💪 (Purpose)
 - Step 2: 🔧 (Tools)
 - Step 3: ✏️ (Design)
 - Step 4: 🏗️ (Build)
@@ -36,9 +36,9 @@ This helps the user know where they are in the process and how much is left.
 
 # Welcome
 
-Before starting Step 1, greet the user warmly in 2-3 sentences. Explain that a **Workspace** is a shareable, reusable package of actions, documents, and memory that gives **Claude Cowork** persistent skills and personality across sessions. You set it up once, use it every day, and can share it with others.
+Before starting Step 1, greet the user warmly. Then say: "A workspace turns Claude into a personalised coworker that improves the more you use it. Let's build yours!"
 
-# Step 1 — Purpose (show: 👋 **Step 1 / 5 — What shall we work on?**)
+# Step 1 — Purpose (show: 💪 **Step 1 / 5 — What shall we work on?**)
 
 Check what the user already said. They might have already told you everything you need. If they already described a clear goal, skip straight to "Match to a playbook" below.
 
@@ -48,19 +48,23 @@ Read `/_playbooks/_index.md` first. Pick **3 playbooks** that are broadly useful
 
 ---
 
-👋 **Step 1 / 5 — What are we working on?**
+💪 **Step 1 / 5 — What are we working on?**
 
-Here are some examples of workspaces you can set up:
+Workspaces work best with a clear focus. Here are a few examples:
 
 1. **Onboarding new people** — Plan, Checklist, Document, Teach, Review
 2. **Keeping track of meetings** — Prep, Debrief, Summarize, Decide
 3. **Managing client work** — Draft, Plan, Review, Summarize, Prep
 
-...or something else — like creating a knowledge base, doing market research, running a hiring process, or anything you can think of.
-
 ---
 
-Then use `AskUserQuestion` with a **text input** (no preset options) — question: "What are we working on?"
+Then use `AskUserQuestion` with the question "What shall we work on?" and these options:
+- Show me more ideas
+- I know what we should do!
+
+If the user picks "Show me more ideas", pick 7 different playbooks from the index, read them, and present them in the same format. Repeat until the user picks one or types their own idea.
+
+If the user picks "I know what we should do!", respond with "Tell me!" and wait for their response — do NOT use `AskUserQuestion`, just let them type freely.
 
 ## Initialize progress tracker
 
@@ -75,7 +79,36 @@ Immediately after printing Step 1 and asking the user's first question, use the 
 As you enter each step, mark that task as `in_progress`. When a step is completed, mark it as `completed` before moving on. This keeps the user informed of progress throughout the setup.
 
 ### If the user picks one (from the top 3 or the list)
-Read that playbook file in full. Then ask the playbook's `## Follow-up question` — this is a simple, grounding question that tethers the workspace to the user's specific situation (e.g. "What role are you interviewing for?" or "What do you sell, and to whom?"). Use `AskUserQuestion` with a text input. Use their answer to personalize everything that follows — action descriptions, tone, examples, folder names. Then proceed to "Lock in the playbook" below and continue to Step 2.
+Read that playbook file in full. Then ask them one open follow-up question (as plain text — do NOT use `AskUserQuestion`) to ground the workspace in their specific situation. Use the questions below to match the playbook they picked:
+
+| Playbook | Follow-up question |
+|---|---|
+| Job Interview Prep | What role are you interviewing for? |
+| Content Pipeline | What are you writing about, and where does it go? |
+| Hiring Pipeline | What role are you hiring for? |
+| Venture Launch | What's the idea — in one sentence? |
+| Strategic Planning | What's your organization, and what's on the horizon? |
+| Product Discovery | What kind of product are you exploring? |
+| Roadmap Planning | What are you building, and what's the big goal? |
+| Meeting Operations | What kind of meetings do you run most? |
+| Research Project | What are you researching? |
+| Data Analysis | What data are you working with, and what are you trying to find out? |
+| Client Engagement | What kind of clients do you work with? |
+| Design Sprint | What are you designing, and who's in the room? |
+| Course Design | What are you teaching, and to whom? |
+| Community Building | What's the community about, and where does it live? |
+| Campaign Management | What are you promoting, and who's the audience? |
+| Knowledge Base | What kind of knowledge are you organizing, and who needs it? |
+| Budget Forecasting | What are you budgeting for? |
+| Event Planning | What's the event, and roughly how big? |
+| Onboarding Program | Who are you onboarding — what role, what team? |
+| Process Improvement | Which process are you looking at? |
+| Sales Process | What do you sell, and to whom? |
+| OKR Framework | What level are you setting OKRs for — company-wide, a specific team, or both? |
+
+If the playbook isn't in this table, improvise a similarly short, open question that asks for the one key detail that will make the workspace specific to them.
+
+Use their answer to personalize the workspace name, actions, and example prompts throughout the rest of setup. Then proceed to "Lock in the playbook" below and continue to Step 2.
 
 ### If the user picks "Something else"
 Ask: What's eating your time right now? What do you keep doing manually that you wish just happened?
@@ -142,6 +175,16 @@ Don't ask an open-ended question about which tools to enable. Just propose and l
 
 # Step 3 — Actions + identity (show: ✏️ **Step 3 / 5 — Designing your workspace**)
 
+## Explain how it all fits together
+
+Before presenting the design, give the user a quick mental model of how a workspace works. Keep it to 3-4 plain sentences — no bullet lists, no jargon. Cover:
+
+- **Actions** are step-by-step recipes Claude follows on your behalf. Each one handles a specific task (like researching, drafting, or reviewing).
+- **References** are background knowledge — files, URLs, notes — that actions draw on to produce better results.
+- **Files** is where outputs and uploads live, organized in folders that match your workflow.
+
+Frame it naturally, like: "Here's how the pieces fit together..." — then move straight into the proposal.
+
 ## What to propose
 
 Silently read the relevant blueprints from `/_playbooks/action_blueprints/` to inform your design, but keep the presentation ultra-compact. Present the workspace like this:
@@ -151,7 +194,6 @@ Silently read the relevant blueprints from `/_playbooks/action_blueprints/` to i
    - **Research** — Investigate a topic and summarize findings
    - **Brainstorm** — Generate and cluster ideas around a challenge
    - **Decide** — Score options and produce a decision record
-3. One line for tone
 
 End with: Anything to add, drop, or change? You can always tweak actions later.
 
@@ -257,8 +299,7 @@ Add each action to `### User Actions` with an emoji, a clear description, and ex
 
 ## Disable the setup trigger
 
-Comment out the ACTIVATE line at the bottom of `CLAUDE.md`:
-`<!-- ACTIVATE: Setup action — read '_workspace/config/_setup.md' and execute. -->`
+Remove the blockquote at the top of `CLAUDE.md` that starts with `> **⚠️ FIRST-RUN SETUP REQUIRED:**`. Delete the entire blockquote line so it no longer triggers setup on future sessions.
 
 ---
 

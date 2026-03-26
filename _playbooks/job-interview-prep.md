@@ -27,6 +27,16 @@ What role are you interviewing for?
 - **Brainstorm** — Generate and refine compelling stories from your experience that map to key competencies.
 - **Debrief** — Reflect on the interview afterward to capture lessons, flag follow-up actions, and improve for next time.
 
+## Action outputs
+
+| Action | Output | Format | Folder |
+|--------|--------|--------|--------|
+| Research | Company & role briefing document | Markdown | `files/interviews/` |
+| Anticipate | List of likely questions with draft answers | Markdown | `files/interviews/` |
+| Prep | Your questions for the interviewer | Markdown | `files/interviews/` |
+| Brainstorm | STAR-format stories mapped to competencies | Markdown | `files/stories/` |
+| Debrief | Post-interview reflection with lessons and follow-ups | Markdown | `files/interviews/` |
+
 ## Required tools & skills
 
 - **WebSearch / WebFetch** — For researching companies, roles, interviewers, and industry context.

@@ -27,6 +27,16 @@ What role are you hiring for?
 - **Evaluate** — Score candidates against competency frameworks after interviews, replacing subjective impressions with structured assessment.
 - **Decide** — Compare finalists using weighted criteria and make a defensible hiring recommendation.
 
+## Action outputs
+
+| Action | Output | Format | Folder |
+|--------|--------|--------|--------|
+| Draft | Job description for the open role | Markdown | `files/positions/` |
+| Design Form | Screening rubric or scorecard | Markdown | `files/templates/` |
+| Checklist | Step-by-step process checklist per hiring stage | Markdown | `files/templates/` |
+| Evaluate | Candidate evaluation against competency framework | Markdown | `files/candidates/` |
+| Decide | Hiring recommendation comparing finalists | Markdown | `files/candidates/` |
+
 ## Required tools & skills
 
 - **Google Calendar** — For scheduling interviews, coordinating panel availability, and managing candidate timelines.

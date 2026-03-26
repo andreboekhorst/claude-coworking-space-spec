@@ -30,6 +30,16 @@ What are you building, and what's the big goal?
 - **Debrief** — Review what shipped, what slipped, and what to adjust going forward
 
 
+## Action outputs
+
+| Action | Output | Format | Folder |
+|--------|--------|--------|--------|
+| Prioritize | Scored and ranked feature/initiative list | Markdown | `files/decisions/` |
+| Map | Dependency map and sequenced timeline | Markdown | `files/roadmaps/` |
+| Plan | Initiative breakdown with milestones and owners | Markdown | `files/roadmaps/` |
+| Decide | Trade-off analysis and priority decision record | Markdown | `files/decisions/` |
+| Debrief | Ship/slip review with adjustments for next cycle | Markdown | `files/updates/` |
+
 ## Required tools & skills
 
 - **Google Calendar** — Coordinate planning sessions, reviews, and stakeholder check-ins

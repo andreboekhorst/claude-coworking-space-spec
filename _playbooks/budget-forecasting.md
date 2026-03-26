@@ -27,6 +27,16 @@ What are you budgeting for?
 - **Review** — Set up regular budget review cycles to compare forecasts against actuals and flag variances early.
 - **Document** — Record budget assumptions, methodology, and decisions so future forecasting builds on past work.
 
+## Action outputs
+
+| Action | Output | Format | Folder |
+|--------|--------|--------|--------|
+| Research | Organized historical spending data and baselines | Markdown | `files/budgets/` |
+| Compare | Side-by-side scenario models (best/expected/worst) | Markdown | `files/forecasts/` |
+| Summarize | Executive budget summary for stakeholders | Markdown | `files/reports/` |
+| Review | Forecast-vs-actuals variance report | Markdown | `files/reports/` |
+| Document | Budget assumptions, methodology, and decisions | Markdown | `files/budgets/` |
+
 ## Required tools & skills
 
 - No external tools required. This playbook works with file-based analysis and documentation.

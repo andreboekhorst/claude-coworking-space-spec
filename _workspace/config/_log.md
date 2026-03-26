@@ -61,3 +61,9 @@ Each entry follows this exact structure. Do not deviate.
 - **Open threads** are for things the user explicitly deferred or that remain unresolved. Don't manufacture them.
 - **Never log private content.** Summarize what was discussed at topic level, don't copy meeting content into the log.
 - **Separate entries** with a blank line between them. Nothing else.
+
+---
+
+# After logging
+
+Once the log entry is written, read and execute `_workspace/config/_reflect.md`. This reviews the session and may propose a workspace improvement. If it has nothing to suggest, it stays silent.

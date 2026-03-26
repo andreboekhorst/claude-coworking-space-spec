@@ -27,6 +27,16 @@ What's the event, and roughly how big?
 - **Draft** — Write event communications: invitations, reminders, speaker outreach, and attendee follow-ups.
 - **Debrief** — Capture what went well, what didn't, attendee feedback, and recommendations for next time.
 
+## Action outputs
+
+| Action | Output | Format | Folder |
+|--------|--------|--------|--------|
+| Plan | Event master plan with timeline, budget, and attendees | Markdown | `files/events/` |
+| Checklist | Countdown checklist for pre-event, day-of, and post-event | Markdown | `files/logistics/` |
+| Prep | Speaker brief, session outline, or facilitation guide | Markdown | `files/events/` |
+| Draft | Invitation, reminder, or follow-up communication | Markdown | `files/follow-up/` |
+| Debrief | Post-event review with feedback and recommendations | Markdown | `files/follow-up/` |
+
 ## Required tools & skills
 
 - **Google Calendar** — For scheduling event dates, speaker slots, rehearsals, and coordination meetings.

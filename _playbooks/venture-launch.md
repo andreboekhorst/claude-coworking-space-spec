@@ -31,6 +31,17 @@ What's the idea — in one sentence?
 - **Draft** — Write business plans, partnership proposals, and go-to-market briefs
 
 
+## Action outputs
+
+| Action | Output | Format | Folder |
+|--------|--------|--------|--------|
+| Research | Market/competitor analysis document | Markdown | `files/research/` |
+| Brainstorm | Clustered ideas with evaluation notes | Markdown | `files/research/` |
+| Decide | Decision record with reasoning and trade-offs | Markdown | `files/research/` |
+| Plan | MVP scope and launch milestone plan | Markdown | `files/plans/` |
+| Pitch | Investor deck, one-pager, or elevator pitch | Markdown | `files/pitches/` |
+| Draft | Business plan, proposal, or go-to-market brief | Markdown | `files/plans/` |
+
 ## Required tools & skills
 
 - **WebSearch** — Research markets, competitors, regulations, and potential partners

@@ -27,6 +27,16 @@ Who are you onboarding — what role, what team?
 - **Teach** — Structure learning sessions and create explainers for tools, systems, and team norms.
 - **Review** — Set up check-in frameworks to evaluate onboarding progress and gather feedback from new hires.
 
+## Action outputs
+
+| Action | Output | Format | Folder |
+|--------|--------|--------|--------|
+| Plan | Week-by-week onboarding timeline (30/60/90 days) | Markdown | `files/plans/` |
+| Checklist | Day-by-day task list for new hires and managers | Markdown | `files/checklists/` |
+| Document | Written guide for processes, tools, or team norms | Markdown | `files/materials/` |
+| Teach | Structured learning session or explainer | Markdown | `files/materials/` |
+| Review | Check-in framework for evaluating onboarding progress | Markdown | `files/plans/` |
+
 ## Required tools & skills
 
 - **Google Calendar** — For scheduling onboarding sessions, check-ins, and introductions across the first weeks.
