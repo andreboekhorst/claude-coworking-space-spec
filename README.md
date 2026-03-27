@@ -27,9 +27,11 @@ Getting started is easy, all you need to do is download [this workspace](https:/
 5. Select "Use an existing folder", and select the folder you just unzipped
 6. Say hi! A setup wizard will walk you through configuration.
 
-## Exporting and Reusing
+![Wizard](_assets/wizard.gif)
 
+## Exporting and Reusing
 When you are happy with your workspace, you can export and reuse it for others. Just ask to export the project. It will strip any personal files from the project and create a zip file.
+
 
 # 🐙 Examples
 
