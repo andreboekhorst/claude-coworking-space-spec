@@ -17,9 +17,9 @@ Think of it like a desk set up for one type of work. Instead of a blank desk eve
 
 A workspace contains:
 
-**Actions** — step-by-step recipes Claude follows on your behalf. "Prep my meeting", "Draft a post", "Review my OKRs" — each one is a small instruction file that tells Claude exactly what to do and how.
+**Skills** — step-by-step recipes Claude follows on your behalf. "Prep my meeting", "Draft a post", "Review my OKRs" — each one is a small instruction file that tells Claude exactly what to do and how.
 
-**References** — background knowledge that makes actions smarter. Your writing style, company context, a list of clients, a URL you check often. Claude reads these when it needs them.
+**References** — background knowledge that makes skills smarter. Your writing style, company context, a list of clients, a URL you check often. Claude reads these when it needs them.
 
 **Files** — anything you upload or Claude creates. Notes, drafts, exports — all organised in folders that make sense for your work.
 

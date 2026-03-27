@@ -1,79 +1,90 @@
 ![Header](_assets/header.jpg)
 
-# Workspace Designer
-
-With Workspace Designer you have project-bound actions in Claude Code — without needing to write any code or prompts yourself!
-
-- **Setup wizard** — Configures the workspace through a conversation
-- **Self-writing actions** — Claude creates and updates its own action files
-- **References** — Register files, URLs, or notes as background knowledge
-- **Exportable** — Share your workspace as a reusable template
-- **All markdown** — No code, just folders and `.md` files
-
 ---
 
 <p align="center">
-  <big><big><a href="https://github.com/andreboekhorst/claude-coworking-space-spec/archive/refs/heads/main.zip">Download workspace-designer.zip</a></big></big>
+  <big><big><a href="https://github.com/andreboekhorst/claude-workspace-designer/archive/refs/heads/main.zip">Download workspace-designer.zip</a></big></big>
 </p>
 
 ---
 
-## 🐚 Getting Started
+# 🐚 Workspace Designer
+Workspace designer adds skills to your Claude Cowork projects, and only to that project. This allows you to create workflows adjusted to your project needs. Since these skills write themselves you don't need to touch any code. You can continuously adjust and finetune its behaviour, and when you are happy, you can even export a clean project configuration for you to share and reuse. 
 
-1. Download [this workspace](https://github.com/andreboekhorst/claude-coworking-space-spec/archive/refs/heads/main.zip)
+- 🐙 **Skills for Claude Cowork Projects**
+- 🦀 **No Code Required**
+- 🦦 **Finetune while using**
+- ⛵️ **Export, Share, Re-use**
+
+## Getting Started
+Getting started is easy, all you need to do is download [this workspace](https://github.com/andreboekhorst/claude-workspace-designer/archive/refs/heads/main.zip), and open up the folder and say hi! We will guide you through the rest.
+
+1. Download [this workspace](https://github.com/andreboekhorst/claude-workspace-designer/archive/refs/heads/main.zip)
 2. Unzip the file
 3. Open Claude Desktop, go to Claude Code
 4. Under the "Projects" section, click the **+** button to create a new Project
 5. Select "Use an existing folder", and select the folder you just unzipped
 6. Say hi! A setup wizard will walk you through configuration.
 
-## 🏄 Workspace Agent Wizard
-
-When you open your empty project folder, all you need to do is say hi. A setup wizard will guide you through creating a workspace catered to your needs. After this, you can continuously update your workspace functionalities.
-
-## 🌊 Exporting and Reusing
+## Exporting and Reusing
 
 When you are happy with your workspace, you can export and reuse it for others. Just ask to export the project. It will strip any personal files from the project and create a zip file.
 
----
+# 🏖️ F.A.Q.
 
-## 🏖️ How Does It Work?
+## How Does It Work?
 
-Workspace Designer uses Claude Code under the hood. That means it can write its own prompts! With this in mind we created a framework for a workspace that contains a defined structure, and a set of configurations, actions, logs, and references. When you run an empty project for the first time, it will use these predefined configurations to help you set up a workspace and create actions.
+Claude Cowork is basically Claude Code under the hood. That means it can write its own prompts! With this in mind we created a specification for a workspace that contains a defined structure, and a set of configurations, skills, logs, and references. When you run an empty project for the first time, it will use these predefined configurations to help you set up a workspace and create skills. Read more of this specification below.
 
-### Progressive Disclosure
+When we first start a conversation with a workspace, it triggers a setup-flow that helps you define your needs for a workspace. When that's done - it will start writing all of the skills themselves.
 
-Whenever you add new actions to your workflow, they are not added directly to the prompt. In the main entry file (`CLAUDE.md`) we list all available actions with a reference to the full instructions. The detailed instructions are only loaded on-demand when an action is activated.
+## What are workspace specifications?
+In the Workspace specifications we propose a structure to which we can enable container-based Claude projects. It contains a set of built-in skills, logs and user generated skills. All of these skills are being triggered through progressive disclosure.
+
+## What is Progressive Disclosure?
+Whenever you add new skills to your workflow, they are not added directly to the prompt. In the main entry file (`CLAUDE.md`) we list all available skills with a reference to the full instructions. The detailed instructions are only loaded on-demand when a skill is activated.
+
+## Can I reuse the skills?
+Claude Cowork doesn't really support project-based skills yet. So the skills within this project are not the same as the [skills for claude code](https://code.claude.com/docs/en/skills). But if you want to, you could take the individual skills file from the `_workspace/skills` and turn it into a Claude Code command.
+
+## Is it safe?
+When you run someone else's prompts on your computer, and you give it access to your files, there are inherent risks involved. So please always check the playbooks for any weird prompts (Claude cowork could actually help with that).
+
+## Whats next?
+Currently, Claude Cowork is in it's infancy and it does not have the nice features that claude chat has to display and interact with people. But eventually this will grow. Also, I think having containerised llm packages are the way forward and we will probably be able to create software fully written and shaped by its user in a similar unboarding steps.
+
+--- 
+
+![Meme](_assets/meme.jpg)
 
 
+# 🐠 The Workspace specification
 
-# 🐠 The Workspace Protocol
-
-The Workspace Protocol defines how a folder must be structured so Claude can discover actions, load instructions on demand, and operate as a domain-specific assistant. Any workspace — whether built by hand or generated — should follow this spec.
+The Workspace specification defines how a folder must be structured so Claude can discover skills, load instructions on demand, and operate as a domain-specific assistant. Any workspace — whether built by hand or generated — should follow this spec.
 
 ### Core Concepts
 
-- **CLAUDE.md as entry point** — Claude reads this file upfront. It contains just enough to identify user intent and route to the right action file.
-- **Progressive disclosure** — Full action instructions live in separate files and are loaded on-demand. This keeps the initial context small and focused.
-- **Actions** — Standalone markdown files that tell Claude exactly what to do. Split into system actions (setup, logging, etc.) and user actions (what makes your workspace unique).
-- **References** — Background knowledge, user settings, and context that help actions perform better.
+- **CLAUDE.md as entry point** — Claude reads this file upfront. It contains just enough to identify user intent and route to the right skill file.
+- **Progressive disclosure** — Full skill instructions live in separate files and are loaded on-demand. This keeps the initial context small and focused.
+- **Skills** — Standalone markdown files that tell Claude exactly what to do. Split into system skills (setup, logging, etc.) and user skills (what makes your workspace unique).
+- **References** — Background knowledge, user settings, and context that help skills perform better.
 
 ### Folder Structure
 
-Every workspace that follows the protocol looks like this:
+Every workspace that follows the specification looks like this:
 
 ```
 my-workspace/
   CLAUDE.md                            # Entry point. The only file Claude reads upfront.
   _workspace/
-    config/                            # System actions (not user-facing).
+    config/                            # System skills (not user-facing).
       _setup.md                        # Onboarding and configuration.
       _log.md                          # Session logging.
       _add-reference.md                # Reference management.
-      _add-action.md                   # Action builder.
+      _add-skill.md                    # Skill builder.
       _export-workspace.md             # Export and packaging.
-    actions/                           # User-facing actions. One file per action.
-      [action-name].md
+    skills/                            # User-facing skills. One file per skill.
+      [skill-name].md
     references/                        # References and user settings (filled during setup).
       user-settings.md
     logs/                              # Session logs. Gitignored.
@@ -86,7 +97,7 @@ Rules:
 
 ### CLAUDE.md Spec
 
-The entry point. Claude reads this upfront and uses it to route user intent to action files. It must contain these sections, in order:
+The entry point. Claude reads this upfront and uses it to route user intent to skill files. It must contain these sections, in order:
 
 #### Header
 
@@ -103,7 +114,7 @@ The entry point. Claude reads this upfront and uses it to route user intent to a
 What the workspace needs. Two levels:
 
 - **Hard:** Won't work without these. Setup should block or warn prominently.
-- **Recommended:** Works without these, but some actions will be limited.
+- **Recommended:** Works without these, but some skills will be limited.
 
 If there are no hard requirements, say so explicitly.
 
@@ -114,7 +125,7 @@ If there are no hard requirements, say so explicitly.
 None — this Workspace works out of the box.
 
 ### Recommended
-- Google Calendar MCP: Enables calendar-based actions. Without it, actions relying on calendar data require manual input.
+- Google Calendar MCP: Enables calendar-based skills. Without it, skills relying on calendar data require manual input.
 ```
 
 #### Folder Structure
@@ -125,39 +136,39 @@ Lists all folders, split into system folders (versioned, part of the template) a
 ## Folder Structure
 
 ### System folders (versioned, part of the template)
-- `_workspace/config/`: Internal system actions
-- `_workspace/actions/`: User-facing action instructions
+- `_workspace/config/`: Internal system skills
+- `_workspace/skills/`: User-facing skill instructions
 
 ### User data folders (gitignored, personal to each user)
 - `_workspace/references/`: Reference material, background knowledge, and user settings
 - `_workspace/logs/`: Session logs
 ```
 
-#### Actions
+#### Skills
 
-Maps user intent to action files. Every entry needs a name, a file path, and trigger examples. Split into:
+Maps user intent to skill files. Every entry needs a name, a file path, and trigger examples. Split into:
 
-- **Default Actions:** Setup, Logging, Add Context, Add Action, Export. System actions present in every workspace.
-- **User Actions:** What makes this workspace unique.
+- **Default Skills:** Setup, Logging, Add Context, Add Skill, Export. System skills present in every workspace.
+- **User Skills:** What makes this workspace unique.
 
-Must end with: `Before executing any action, you MUST read its instruction file in full.`
+Must end with: `Before executing any skill, you MUST read its instruction file in full.`
 
 ```markdown
-## Actions
-Claude activates the matching action based on user intent. Read the user's intent and activate automatically — do not wait for a command.
+## Skills
+Claude activates the matching skill based on user intent. Read the user's intent and activate automatically — do not wait for a command.
 
-### Default Actions
-These are default actions that come with any workspace:
+### Default Skills
+These are default skills that come with any workspace:
 - Setup (`_workspace/config/_setup.md`): Says "set up my space", "configure", or opens the project for the first time.
-- Logging (`_workspace/config/_log.md`): Session logging, runs after every action.
+- Logging (`_workspace/config/_log.md`): Session logging, runs after every skill.
 - Add Reference (`_workspace/config/_add-reference.md`): Wants to add background knowledge or reference material.
-- Add Action (`_workspace/config/_add-action.md`): Wants to add a new action or skill.
+- Add Skill (`_workspace/config/_add-skill.md`): Wants to add a new skill.
 - Export Workspace (`_workspace/config/_export-workspace.md`): Wants to export, share, or package the workspace.
 
-### User Actions
-- [Action Name] (`_workspace/actions/[filename].md`): [Trigger description with 2-3 example phrases]
+### User Skills
+- [Skill Name] (`_workspace/skills/[filename].md`): [Trigger description with 2-3 example phrases]
 
-Before executing any action, you MUST read its instruction file in full. This is progressive disclosure — the detailed instructions are loaded on-demand, not upfront.
+Before executing any skill, you MUST read its instruction file in full. This is progressive disclosure — the detailed instructions are loaded on-demand, not upfront.
 ```
 
 #### Ground Rules
@@ -165,7 +176,7 @@ Before executing any action, you MUST read its instruction file in full. This is
 Must include at least these four:
 - User data is sacred: never overwrite or delete without permission
 - Never invent: only use what the user actually provided
-- Always log sessions: run the logging action after every action
+- Always log sessions: run the logging skill after every skill
 - Read files first: never edit a file you haven't read in this session
 
 Authors can add more.
@@ -180,31 +191,31 @@ Explicit anti-patterns for this workspace.
 
 #### Setup Trigger
 
-Last line. Triggers the setup action on first run, then gets commented out:
+Last line. Triggers the setup skill on first run, then gets commented out:
 
 ```markdown
-ACTIVATE: Setup action — read `_workspace/config/_setup.md` and execute.
+ACTIVATE: Setup skill — read `_workspace/config/_setup.md` and execute.
 ```
 
-### Action Files
+### Skill Files
 
-Each action is a standalone markdown file. It should contain everything Claude needs — don't assume context from other files.
+Each skill is a standalone markdown file. It should contain everything Claude needs — don't assume context from other files.
 
 Guidelines:
 - Be specific: tell Claude what to do, what to ask, what to output, where to save
 - Include examples: show expected output format, file naming, templates
-- State constraints: if the action has rules, state them explicitly
+- State constraints: if the skill has rules, state them explicitly
 
-### Default Actions
+### Default Skills
 
-Every workspace includes these system actions in `_workspace/config/`:
+Every workspace includes these system skills in `_workspace/config/`:
 
-| Action | File | Purpose |
+| Skill | File | Purpose |
 |--------|------|---------|
-| Setup | `_setup.md` | First-run onboarding: verify folders, check requirements, personalize settings, show available actions |
-| Logging | `_log.md` | Runs after every action: appends to daily log, records what happened and what changed |
+| Setup | `_setup.md` | First-run onboarding: verify folders, check requirements, personalize settings, show available skills |
+| Logging | `_log.md` | Runs after every skill: appends to daily log, records what happened and what changed |
 | Add Reference | `_add-reference.md` | Register documents, URLs, or background knowledge as reference material |
-| Add Action | `_add-action.md` | Interactively create new actions and register them in CLAUDE.md |
+| Add Skill | `_add-skill.md` | Interactively create new skills and register them in CLAUDE.md |
 | Export | `_export-workspace.md` | Package the workspace for sharing (clean template or full export) |
 
 ---
@@ -212,28 +223,14 @@ Every workspace includes these system actions in `_workspace/config/`:
 ## 🐡 Building Your Own
 
 1. Copy this repo or create the structure from scratch
-2. Write your `CLAUDE.md` following the protocol spec above
-3. Create your setup action in `_workspace/config/_setup.md`
-4. Add action files to `_workspace/actions/`
+2. Write your `CLAUDE.md` following the specification spec above
+3. Create your setup skill in `_workspace/config/_setup.md`
+4. Add skill files to `_workspace/skills/`
 5. Zip and share
 
 ---
 
-## 🔮 What's Next
-
-This is a draft. We're working toward:
-- A skill that generates Workspaces from a description
-- A library of community Workspaces
-- Native integration with Claude Code
-
-## 🦀 FAQ
-
-**Why not just use Claude Skills?**
-Claude Skills can be used within the Claude app, but they are not bound to a specific project or action. Also, it is a lot easier to configure new actions within your workspace, and because Claude can change its own instructions — you can continuously improve your actions!
-
-**What is progressive disclosure?**
-Progressive disclosure means Claude only loads the instructions it needs, when it needs them. The `CLAUDE.md` file is lean — it contains just enough to identify user intent and route to the right action. The full instructions for each action are read on-demand when activated. This keeps context small and focused.
 
 ## ⚠️ Security Notice
 
-Workspaces are essentially prompt files that instruct Claude how to behave. Before using any workspace you didn't author yourself, **read every markdown file in the project** — especially `CLAUDE.md` and the action files in `_workspace/`. Treat them like code: a malicious or poorly written prompt could instruct Claude to overwrite files, exfiltrate content, or behave in unexpected ways. Only run workspaces from sources you trust, and review any changes before applying them to your own setup.
+Workspaces are essentially prompt files that instruct Claude how to behave. Before using any workspace you didn't author yourself, **read every markdown file in the project** — especially `CLAUDE.md` and the skill files in `_workspace/`. Treat them like code: a malicious or poorly written prompt could instruct Claude to overwrite files, exfiltrate content, or behave in unexpected ways. Only run workspaces from sources you trust, and review any changes before applying them to your own setup.

@@ -16,9 +16,9 @@ A workspace is a folder that turns Claude into a specialised coworker for one sp
 Here's the basic idea:
 
 1. **You describe your work** — what you're trying to get done, what's annoying, what takes too long
-2. **We design actions together** — small, focused recipes that Claude follows on your behalf (like "prep for a meeting" or "draft a LinkedIn post")
-3. **You use them** — just say what you need in plain language and the right action kicks in
-4. **It gets better over time** — add references, tweak actions, create new ones as your workflow evolves
+2. **We design skills together** — small, focused recipes that Claude follows on your behalf (like "prep for a meeting" or "draft a LinkedIn post")
+3. **You use them** — just say what you need in plain language and the right skill kicks in
+4. **It gets better over time** — add references, tweak skills, create new ones as your workflow evolves
 
 Everything lives in this folder. Nothing is hidden, nothing is magic — you can read and edit any file.
 
